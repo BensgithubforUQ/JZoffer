@@ -11,21 +11,21 @@ struct ListNode {//JZ6
     int val;
     struct ListNode* next;
     ListNode(int x) :
-    val(x), next(NULL) {
- 
+        val(x), next(NULL) {
+
     }
 
 };
 
 
- // Definition for binary tree
-  struct TreeNode {//JZ7 重建二叉树
-      int val;
-      TreeNode *left;
-      TreeNode *right;
-      TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-  };
- 
+// Definition for binary tree
+struct TreeNode {//JZ7 重建二叉树
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
 
 class Solution {
 public:
