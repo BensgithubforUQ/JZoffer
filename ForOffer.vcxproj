@@ -147,6 +147,7 @@
     <ClCompile Include="JZ5.cpp" />
     <ClCompile Include="JZ6.cpp" />
     <ClCompile Include="JZ7.cpp" />
+    <ClCompile Include="JZ8.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

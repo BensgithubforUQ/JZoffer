@@ -14,7 +14,16 @@ struct ListNode {//JZ6
         val(x), next(NULL) {
 
     }
+};
 
+struct TreeLinkNode {//JZ8
+    int val;
+    struct TreeLinkNode* left;
+    struct TreeLinkNode* right;
+    struct TreeLinkNode* next;
+    TreeLinkNode(int x) :val(x), left(NULL), right(NULL), next(NULL) {
+
+    }
 };
 
 
@@ -47,4 +56,6 @@ public:
     vector<int> printListFromTailToHead(ListNode* head);//JZ6 从尾到头打印链表
 
     TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin); //JZ7 重建二叉树
+
+    TreeLinkNode* GetNext(TreeLinkNode* pNode);//JZ7 二叉树的下一个结点
 };
