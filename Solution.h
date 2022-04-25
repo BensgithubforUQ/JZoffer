@@ -5,6 +5,7 @@
 #include <time.h>
 #include <set>
 #include <algorithm>
+#include <stack>
 using namespace std;
 
 struct ListNode {//JZ6
@@ -58,4 +59,17 @@ public:
     TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin); //JZ7 重建二叉树
 
     TreeLinkNode* GetNext(TreeLinkNode* pNode);//JZ7 二叉树的下一个结点
+
+    void push(int node);//JZ9 用三个栈实现队列
+    int pop();//JZ9 用三个栈实现队列
+
+    void push1(int node);//JZ9 用两个栈实现队列
+    int pop1();//JZ9 用两个栈实现队列
+
+    int Fibonacci(int n);//JZ10 斐波那契数列 递归
+    int Fibonacci1(int n);//JZ10 斐波那契数列 动态规划
+
+private:
+    stack<int> stack1; //JZ9 用两个栈实现队列
+    stack<int> stack2;// JZ9 用两个栈实现队列
 };
