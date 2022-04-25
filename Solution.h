@@ -6,6 +6,7 @@
 #include <set>
 #include <algorithm>
 #include <stack>
+#include <queue>
 using namespace std;
 
 struct ListNode {//JZ6
@@ -69,7 +70,22 @@ public:
     int Fibonacci(int n);//JZ10 斐波那契数列 递归
     int Fibonacci1(int n);//JZ10 斐波那契数列 动态规划
 
+
+
 private:
     stack<int> stack1; //JZ9 用两个栈实现队列
     stack<int> stack2;// JZ9 用两个栈实现队列
+
+public:
+    int minNumberInRotateArray(vector<int> rotateArray);//JZ11 旋转数组的最小数字
+
+    bool hasPath(vector<vector<char> >& matrix, string word);//JZ12 矩阵中的路径
+    int flag = 0;
+    vector<vector<int> > visited;
+    int size1, size2, size3;
+    void findString_dfs(int n, int m, vector<vector<char>> &matrix, string& word, int pos);
+
+
+    int movingCount(int threshold, int rows, int cols);//JZ13 机器人的运动范围
+    int dfs_JZ13(int n, int m, int rows, int cols, vector<vector<int>>& visited1);
 };
