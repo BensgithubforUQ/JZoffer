@@ -20,5 +20,11 @@ public:
     int  NumberOf1(int n);//JZ15 二进制中1的个数
     int  NumberOf1_DP(long long int n, long long int* PowerOfTwo);//JZ15 二进制中1的个数
 
+    double Power(double base, int exponent);//JZ16 数值的整数次方
+    double Power_DP(double base, int exponent);//JZ16 数值的整数次方 快速幂，动态规划
+
+
+    vector<int> printNumbers(int n);//JZ17 打印从1到最大的n位数,过于简单
+
 
 };

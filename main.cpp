@@ -55,6 +55,9 @@ int main() {
 	//cout << offer2.NumberOf1(6)  <<" ";
 	//cout << offer2.NumberOf1(10) << " ";
 	//cout << offer2.NumberOf1(16) << " ";
-	cout << offer2.NumberOf1(-0) << " ";
+	//cout << offer2.NumberOf1(-0) << " ";
+
+	/*cout << offer2.Power(2.10000, 3)<<" ";
+	cout << offer2.Power_DP(2.10000, 3);*/
 	return 0;
 }

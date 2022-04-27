@@ -65,5 +65,11 @@
     <ClCompile Include="JZ15.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="JZ16.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JZ17.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
