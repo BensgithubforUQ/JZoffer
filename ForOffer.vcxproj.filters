@@ -18,6 +18,9 @@
     <ClInclude Include="Solution.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Solution2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,6 +57,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="JZ13.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JZ14.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

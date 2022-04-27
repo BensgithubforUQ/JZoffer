@@ -1,4 +1,5 @@
 #include "Solution.h"
+#include "Solution2.h"
 
 int main() {
 	Solution offer;
@@ -42,11 +43,14 @@ int main() {
 
 	//offer.hasPath(matrix,"abcced");
 
-	cout<<offer.movingCount(1, 2, 3);
+	//cout<<offer.movingCount(1, 2, 3);
 	/*0 1 2 3 4 5 6
 	  1 2 3 4 5 6 7
 	  2 3 4 5 6 7 8
 	  3 4 5 6 7 8 9
 	  4 5 6 7 8 9 10*/
+
+	Solution2 offer2;
+	cout << offer2.cutRope(18) << " " << offer2.cutRope_DP(18);
 	return 0;
 }
