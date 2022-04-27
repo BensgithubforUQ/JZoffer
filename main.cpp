@@ -51,6 +51,10 @@ int main() {
 	  4 5 6 7 8 9 10*/
 
 	Solution2 offer2;
-	cout << offer2.cutRope(18) << " " << offer2.cutRope_DP(18);
+	//cout << offer2.cutRope(18) << " " << offer2.cutRope_DP(18);
+	//cout << offer2.NumberOf1(6)  <<" ";
+	//cout << offer2.NumberOf1(10) << " ";
+	//cout << offer2.NumberOf1(16) << " ";
+	cout << offer2.NumberOf1(-0) << " ";
 	return 0;
 }
