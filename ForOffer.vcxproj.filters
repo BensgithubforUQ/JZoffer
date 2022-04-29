@@ -71,5 +71,11 @@
     <ClCompile Include="JZ17.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="JZ18.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JZ19.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

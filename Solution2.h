@@ -9,6 +9,15 @@
 #include <queue>
 using namespace std;
 
+
+
+ struct ListNode_JZ18 {
+ 	int val;
+ 	struct ListNode_JZ18*next;
+    ListNode_JZ18 (int x) : val(x), next(nullptr) {}
+  };
+ 
+
 //jz14 - jz24
 class Solution2 {
 public:
@@ -26,5 +35,10 @@ public:
 
     vector<int> printNumbers(int n);//JZ17 打印从1到最大的n位数,过于简单
 
+    ListNode_JZ18* deleteNode(ListNode_JZ18* head, int val); //JZ18 删除链表的节点
 
+
+    bool match(string str, string pattern);//JZ19 正则表达式匹配
+    bool match1(string str, string pattern);
+    bool match_core(string str, string pattern);
 };

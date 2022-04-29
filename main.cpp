@@ -59,5 +59,7 @@ int main() {
 
 	/*cout << offer2.Power(2.10000, 3)<<" ";
 	cout << offer2.Power_DP(2.10000, 3);*/
+
+	offer2.match("aaaabbbcc","c*a*d");
 	return 0;
 }
