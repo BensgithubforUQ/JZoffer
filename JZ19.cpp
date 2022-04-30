@@ -1,41 +1,36 @@
 #include "Solution2.h"
 
-bool Solution2::match(string str, string pattern) {
+bool Solution2::match(string s, string p) {
     // write code here
     /*请实现一个函数用来匹配包括'.'和'*'的正则表达式。
         1.模式中的字符'.'表示任意一个字符
         2.模式中的字符'*'表示它前面的字符可以出现任意次（包含0次）。
         在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串"aaa"与模式"a.a"和"ab*ac*a"匹配，但是与"aa.a"和"ab*a"均不匹配*/
    //动态规划
-    int n1 = str.length();
-    int n2 = str.length();
-    //dp[i][j]
-    vector<vector<bool> > dp(n1 + 1, vector<bool>(n2 + 1, false));
-    dp[0][0] = true; //都为空串的时候，初始化为true
-    for (int i = 2; i <= n2; i++) {
-        if (pattern[i - 1] == '*') {
-            dp[0][i] = dp[0][i - 1];
-        }
+    int m = s.size(), n = p.size();
+    vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, false));
+    dp[0][0] = true;//空串
+    for (int j = 2; j <= n; j++) {
+        //可以让自己前面个字符重复0次
+        if (p[j - 1] == '*')//组合： ？（j-2），*（j-1）。
+            dp[0][j] = dp[0][j - 2]; //与再前一个能够匹配空串有关
     }
-    for (int i = 1; i <= n1; i++) {
-        for (int j = 1; j <= n2; j++) {
-            if (pattern[j - 1] != '*' && (pattern[j - 1] == '.' || pattern[j - 1] == str[i - 1])) {
+    for (int i = 1; i <= m; i++) {   //遍历str每个长度
+        for (int j = 1; j <= n; j++) {  //遍历pattern每个长度
+            if (s[i - 1] == p[j - 1] || p[j - 1] == '.') {  //当前字符不为*，用.去匹配或者字符直接相同
                 dp[i][j] = dp[i - 1][j - 1];
-            }
-            else if (j >= 2 && pattern[j - 1] == '*'){
-                if (pattern[j - 2] == '.' || pattern[j - 2] == str[i - 1]) {
-                    //转移情况
-                    dp[i][j] = dp[i - 1][j] || dp[i][j - 2];
-                }
-                else {
-                    //不匹配
-                    dp[i][j] = dp[i][j - 2];
+            }  
+            else if (p[j - 1] == '*') {//当前的字符为*
+                if (j > 1) {
+                    if (dp[i][j - 2]) dp[i][j] = true; //若是前一位为.或者前一位可以与这个数字匹配
+                    else if (s[i - 1] == p[j - 2] || p[j - 2] == '.') {
+                        dp[i][j] = dp[i - 1][j];
+                    }
                 }
             }
         }
     }
-
-    return dp[n1][n2];
+    return dp[m][n];
 }
 
 bool Solution2::match_core(string str, string pattern) {

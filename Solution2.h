@@ -41,4 +41,6 @@ public:
     bool match(string str, string pattern);//JZ19 正则表达式匹配
     bool match1(string str, string pattern);
     bool match_core(string str, string pattern);
+
+    bool isNumeric(string str);//JZ20 表示数值的字符串
 };
