@@ -11,7 +11,7 @@ using namespace std;
 
 
 
- struct ListNode_JZ18 {
+ struct ListNode_JZ18 { //JZ22同样用这个链表结点
  	int val;
  	struct ListNode_JZ18*next;
     ListNode_JZ18 (int x) : val(x), next(nullptr) {}
@@ -38,9 +38,14 @@ public:
     ListNode_JZ18* deleteNode(ListNode_JZ18* head, int val); //JZ18 删除链表的节点
 
 
-    bool match(string str, string pattern);//JZ19 正则表达式匹配
+    bool match(string str, string pattern);//JZ19 正则表达式匹配 极难 多复习
     bool match1(string str, string pattern);
     bool match_core(string str, string pattern);
 
-    bool isNumeric(string str);//JZ20 表示数值的字符串
+    bool isNumeric(string str);//JZ20 表示数值的字符串 较难
+
+    vector<int> reOrderArray(vector<int>& array); //JZ21 调整数组顺序使奇数位于偶数前面(一)
+
+    ListNode_JZ18* FindKthToTail(ListNode_JZ18* pHead, int k); //JZ22 链表中倒数最后k个结点
+
 };

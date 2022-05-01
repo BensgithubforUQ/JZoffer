@@ -154,6 +154,8 @@
     <ClCompile Include="JZ18.cpp" />
     <ClCompile Include="JZ19.cpp" />
     <ClCompile Include="JZ20.cpp" />
+    <ClCompile Include="JZ21.cpp" />
+    <ClCompile Include="JZ22.cpp" />
     <ClCompile Include="JZ3.cpp" />
     <ClCompile Include="JZ4.cpp" />
     <ClCompile Include="JZ5.cpp" />

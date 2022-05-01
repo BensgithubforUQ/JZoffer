@@ -62,7 +62,11 @@ int main() {
 
 	//offer2.match("aaaabbbcc","c*a*d");
 	//cout << "  -123" << endl;
-	if (offer2.isNumeric("+")) cout << "true" << endl;
-	else cout << "false";
+	//if (offer2.isNumeric("+")) cout << "true" << endl;
+	//else cout << "false";
+	vector<int>c{ 1,3,5,6,7 };
+	for (auto x: offer2.reOrderArray(c)) {
+		cout << x << " ";
+	}
 	return 0;
 }
