@@ -20,7 +20,7 @@ ListNode_JZ18* Solution2::FindKthToTail(ListNode_JZ18* pHead, int k) {//JZ22 Á´±
 	while (fast) {
 		slow = slow->next;
 		fast = fast->next;
-
+		
 	}
 	return slow;
 }

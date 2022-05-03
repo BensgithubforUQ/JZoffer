@@ -17,6 +17,13 @@ using namespace std;
     ListNode_JZ18 (int x) : val(x), next(nullptr) {}
   };
  
+ struct ListNode23 { //JZ24也用同种数据结构
+     int val;
+     struct ListNode23* next;
+     ListNode23(int x) :
+         val(x), next(NULL) {
+     }
+ };
 
 //jz14 - jz24
 class Solution2 {
@@ -47,5 +54,10 @@ public:
     vector<int> reOrderArray(vector<int>& array); //JZ21 调整数组顺序使奇数位于偶数前面(一)
 
     ListNode_JZ18* FindKthToTail(ListNode_JZ18* pHead, int k); //JZ22 链表中倒数最后k个结点
+
+    ListNode23* EntryNodeOfLoop(ListNode23* pHead);
+    ListNode23* EntryNodeOfLoop_hash(ListNode23* pHead);
+
+    ListNode23* ReverseList(ListNode23* pHead)//JZ24 反转链表
 
 };
