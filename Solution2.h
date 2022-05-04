@@ -58,6 +58,6 @@ public:
     ListNode23* EntryNodeOfLoop(ListNode23* pHead);
     ListNode23* EntryNodeOfLoop_hash(ListNode23* pHead);
 
-    ListNode23* ReverseList(ListNode23* pHead)//JZ24 反转链表
+    ListNode23* ReverseList(ListNode23* pHead);//JZ24 反转链表
 
 };
