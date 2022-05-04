@@ -25,13 +25,28 @@ struct TreeNode {
 		val(x), left(NULL), right(NULL) {
 	}
 };
-
+//jz24 - jz35
 class Solution3 {
 public:
 	ListNode_JZ25* Merge(ListNode_JZ25* pHead1, ListNode_JZ25* pHead2);//JZ25 合并两个排序的链表
 	bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2); //JZ26 树的子结构
 	bool recursion(TreeNode* root1, TreeNode* root2);//
 
-	TreeNode* Mirror(TreeNode* pRoot);//JZ27
+	TreeNode* Mirror(TreeNode* pRoot);//JZ27二叉树镜像
 	TreeNode* mirror(TreeNode* Root);
+
+	bool isSymmetrical(TreeNode* pRoot);//JZ28 对称的二叉树
+	bool compareTree(TreeNode* root1, TreeNode* root2);
+
+	vector<int> printMatrix(vector<vector<int> > matrix);//JZ29 顺时针打印矩阵
+	void readMatrix(vector<vector<int> >& matrix, vector<int>& res);
+
+	stack<int> s1;
+	stack <int> s2;
+	void push(int value);//JZ30 包含min函数的栈
+	void pop();
+	int top();
+	int min();//JZ30 包含min函数的栈
+
+	bool IsPopOrder(vector<int> pushV, vector<int> popV)//JZ31 栈的压入、弹出序列
 };

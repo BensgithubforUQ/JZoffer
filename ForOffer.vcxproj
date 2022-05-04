@@ -162,7 +162,11 @@
     <ClCompile Include="JZ25.cpp" />
     <ClCompile Include="JZ26.cpp" />
     <ClCompile Include="JZ27.cpp" />
+    <ClCompile Include="JZ28.cpp" />
+    <ClCompile Include="JZ29.cpp" />
     <ClCompile Include="JZ3.cpp" />
+    <ClCompile Include="JZ30.cpp" />
+    <ClCompile Include="JZ31.cpp" />
     <ClCompile Include="JZ4.cpp" />
     <ClCompile Include="JZ5.cpp" />
     <ClCompile Include="JZ6.cpp" />
