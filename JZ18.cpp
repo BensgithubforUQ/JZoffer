@@ -3,8 +3,7 @@
 ListNode_JZ18* Solution2::deleteNode(ListNode_JZ18* head, int val) {
 	//单向链表，因此需要同时取前中后三个节点才能完成寻值和删除操作
 	if (head->val == val) {
-		head = head->next;
-		return head->next;
+		return head->next; //直接返回第二个位置
 	}
 	auto head0 = new ListNode_JZ18(-1); //创建一个新的头结点
 	head0->next = head; //新的头结点指向输入的头结点

@@ -31,4 +31,7 @@ public:
 	ListNode_JZ25* Merge(ListNode_JZ25* pHead1, ListNode_JZ25* pHead2);//JZ25 合并两个排序的链表
 	bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2); //JZ26 树的子结构
 	bool recursion(TreeNode* root1, TreeNode* root2);//
+
+	TreeNode* Mirror(TreeNode* pRoot);//JZ27
+	TreeNode* mirror(TreeNode* Root);
 };

@@ -101,5 +101,8 @@
     <ClCompile Include="JZ26.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="JZ27.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
