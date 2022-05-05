@@ -46,7 +46,11 @@ public:
 	void push(int value);//JZ30 包含min函数的栈
 	void pop();
 	int top();
-	int min();//JZ30 包含min函数的栈
+	int min();//JZ30 包含min函数的栈，辅助栈
 
-	bool IsPopOrder(vector<int> pushV, vector<int> popV)//JZ31 栈的压入、弹出序列
+	bool IsPopOrder(vector<int> pushV, vector<int> popV);//JZ31 栈的压入、弹出序列，辅助栈
+
+	vector<int> PrintFromTopToBottom(TreeNode* root);//JZ32 从上往下打印二叉树，二叉树的层序遍历，队列。
+	bool VerifySquenceOfBST(vector<int> sequence); //JZ33 二叉搜索树的后序遍历序列
+
 };

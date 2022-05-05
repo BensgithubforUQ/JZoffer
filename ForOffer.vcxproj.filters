@@ -116,5 +116,11 @@
     <ClCompile Include="JZ31.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="JZ32.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JZ33.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
