@@ -25,6 +25,14 @@ struct TreeNode {
 		val(x), left(NULL), right(NULL) {
 	}
 };
+
+struct RandomListNode {
+	int label;
+	struct RandomListNode* next, * random;
+	RandomListNode(int x) :
+		label(x), next(NULL), random(NULL) {
+	}
+};
 //jz24 - jz35
 class Solution3 {
 public:
@@ -55,4 +63,6 @@ public:
 
 	vector<vector<int>> FindPath(TreeNode* root, int expectNumber);//JZ34 二叉树中和为某一值的路径(二)
 	void dfs(TreeNode* root, int number, vector<vector<int>>& ret, vector<int>& path);
+
+	RandomListNode* Clone(RandomListNode* pHead); //JZ35 复杂链表的复制
 };

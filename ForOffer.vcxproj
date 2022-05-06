@@ -170,6 +170,7 @@
     <ClCompile Include="JZ32.cpp" />
     <ClCompile Include="JZ33.cpp" />
     <ClCompile Include="JZ34.cpp" />
+    <ClCompile Include="JZ35.cpp" />
     <ClCompile Include="JZ4.cpp" />
     <ClCompile Include="JZ5.cpp" />
     <ClCompile Include="JZ6.cpp" />
