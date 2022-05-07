@@ -142,6 +142,7 @@
     <ClInclude Include="Solution.h" />
     <ClInclude Include="Solution2.h" />
     <ClInclude Include="Solution3.h" />
+    <ClInclude Include="Solution4.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JZ10.cpp" />
@@ -171,6 +172,7 @@
     <ClCompile Include="JZ33.cpp" />
     <ClCompile Include="JZ34.cpp" />
     <ClCompile Include="JZ35.cpp" />
+    <ClCompile Include="JZ36.cpp" />
     <ClCompile Include="JZ4.cpp" />
     <ClCompile Include="JZ5.cpp" />
     <ClCompile Include="JZ6.cpp" />
