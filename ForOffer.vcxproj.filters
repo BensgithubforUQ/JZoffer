@@ -1,138 +1,142 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="源文件">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="头文件">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="资源文件">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="3-13">
+      <UniqueIdentifier>{046865dc-dcd0-415e-b44b-32d861313556}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="14-24">
+      <UniqueIdentifier>{81287246-1349-46ca-a0f3-5a549b231ccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="25-35">
+      <UniqueIdentifier>{deb041f3-575e-44b0-9c11-0ce8e882697e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="36-46">
+      <UniqueIdentifier>{981a3f78-8646-4a4e-8f5c-846372a18cd1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Solution.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution3.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution4.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="3-13\JZ10.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="3-13\JZ11.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="3-13\JZ12.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="3-13\JZ13.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="3-13\JZ3.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="3-13\JZ4.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="3-13\JZ5.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="3-13\JZ6.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="3-13\JZ7.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="3-13\JZ8.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="3-13\JZ9.cpp">
+      <Filter>3-13</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ14.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ15.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ16.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ17.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ18.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ19.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ20.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ21.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ22.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ23.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="14-24\JZ24.cpp">
+      <Filter>14-24</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ25.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ26.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ27.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ28.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ29.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ30.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ31.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ32.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ33.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ34.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="25-35\JZ35.cpp">
+      <Filter>25-35</Filter>
+    </ClCompile>
+    <ClCompile Include="36-46\JZ36.cpp">
+      <Filter>36-46</Filter>
+    </ClCompile>
+    <ClCompile Include="JZ37.cpp">
+      <Filter>36-46</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ3.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ4.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ5.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ6.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ7.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ8.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ9.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ10.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ11.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ12.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ13.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ14.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ15.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ16.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ17.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ18.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ19.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ20.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ21.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ22.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ23.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ24.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ25.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ26.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ27.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ28.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ29.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ30.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ31.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ32.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ33.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ34.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ35.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="JZ36.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    <ClInclude Include="36-46\Solution4.h">
+      <Filter>36-46</Filter>
+    </ClInclude>
+    <ClInclude Include="25-35\Solution3.h">
+      <Filter>25-35</Filter>
+    </ClInclude>
+    <ClInclude Include="14-24\Solution2.h">
+      <Filter>14-24</Filter>
+    </ClInclude>
+    <ClInclude Include="3-13\Solution.h">
+      <Filter>3-13</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

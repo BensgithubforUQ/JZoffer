@@ -19,4 +19,7 @@ struct TreeNode {
 };
 class Solution4 {
 	TreeNode* Convert(TreeNode* pRootOfTree);
+
+	char* Serialize(TreeNode* root);
+	TreeNode* Deserialize(char* str);
 };

@@ -33,7 +33,7 @@ struct RandomListNode {
 		label(x), next(NULL), random(NULL) {
 	}
 };
-//jz24 - jz35
+//jz25 - jz35
 class Solution3 {
 public:
 	ListNode_JZ25* Merge(ListNode_JZ25* pHead1, ListNode_JZ25* pHead2);//JZ25 合并两个排序的链表
