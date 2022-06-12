@@ -1,7 +1,7 @@
 #include "Solution4.h"
 #include <set>
 
-void dfs(TreeNode* node, vector<TreeNode* > &v) {
+void Solution4::dfs(TreeNode1* node, vector<TreeNode1* > &v) {
 	if (node == nullptr) return;
 	int value = node->val;
 	v.push_back(node);
@@ -9,10 +9,10 @@ void dfs(TreeNode* node, vector<TreeNode* > &v) {
 	dfs(node->right, v);
 }
 
-TreeNode* Solution4::Convert(TreeNode* pRootOfTree) {//JZ36 二叉搜索树与双向链表
+TreeNode1* Solution4::Convert(TreeNode1* pRootOfTree) {//JZ36 二叉搜索树与双向链表
 	//二叉搜索树，就是根节点大于左边，小于右边。
     if (pRootOfTree == nullptr) return pRootOfTree;
-    vector<TreeNode* > v; //整个数组记录下顺序就完了
+    vector<TreeNode1* > v; //整个数组记录下顺序就完了
     dfs(pRootOfTree, v);
     int size = v.size();
 
@@ -21,7 +21,7 @@ TreeNode* Solution4::Convert(TreeNode* pRootOfTree) {//JZ36 二叉搜索树与双向链表
         for (int j = i + 1; j < size; j++) {
             if (min > v[j]->val) {
                 min = v[j]->val;
-                TreeNode* temp = v[i];
+                TreeNode1* temp = v[i];
                 v[i] = v[j];
                 v[j] = temp;
             }

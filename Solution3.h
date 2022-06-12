@@ -60,6 +60,7 @@ public:
 
 	vector<int> PrintFromTopToBottom(TreeNode* root);//JZ32 从上往下打印二叉树，二叉树的层序遍历，队列。
 	bool VerifySquenceOfBST(vector<int> sequence); //JZ33 二叉搜索树的后序遍历序列
+	bool recursioVerify(vector<int> sequence, int begin, int end);
 
 	vector<vector<int>> FindPath(TreeNode* root, int expectNumber);//JZ34 二叉树中和为某一值的路径(二)
 	void dfs(TreeNode* root, int number, vector<vector<int>>& ret, vector<int>& path);

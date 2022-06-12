@@ -26,7 +26,7 @@ bool Solution3::VerifySquenceOfBST(vector<int> sequence) {
 	return recursioVerify(sequence, 0, sequence.size() - 1);
 }
 
-bool recursioVerify(vector<int> sequence, int begin, int end) {
+bool Solution3::recursioVerify(vector<int> sequence, int begin, int end) {
 	if (sequence.empty()|| end<begin) return false;
 	int root = sequence[end];//ends是根结点
 	int index = 0;//index用于查找左子树的根节点

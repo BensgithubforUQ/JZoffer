@@ -1,8 +1,7 @@
-#include "./Solution.h"
-#include "./Solution2.h"
 
-int main() {
-	Solution offer;
+
+//int main() {
+//	Solution offer;
 	//vector<int> test_duplicate_jz3;
 	//test_duplicate_jz3 = { 2, 3, 1, 0, 2, 5, 3 };
 	//cout << "jz3 return: " << offer.duplicate(test_duplicate_jz3) << endl;
@@ -50,7 +49,7 @@ int main() {
 	  3 4 5 6 7 8 9
 	  4 5 6 7 8 9 10*/
 
-	Solution2 offer2;
+	
 	//cout << offer2.cutRope(18) << " " << offer2.cutRope_DP(18);
 	//cout << offer2.NumberOf1(6)  <<" ";
 	//cout << offer2.NumberOf1(10) << " ";
@@ -64,9 +63,20 @@ int main() {
 	//cout << "  -123" << endl;
 	//if (offer2.isNumeric("+")) cout << "true" << endl;
 	//else cout << "false";
-	vector<int>c{ 1,3,5,6,7 };
-	for (auto x: offer2.reOrderArray(c)) {
-		cout << x << " ";
-	}
-	return 0;
-}
+	//vector<int>c{ 1,3,5,6,7 };
+	//for (auto x: offer2.reOrderArray(c)) {
+	//	cout << x << " ";
+	//}
+
+	//Solution4 s4;
+	//TreeNode* root = nullptr;
+	//TreeNode* left1 = nullptr;
+	//TreeNode* right1 = nullptr;
+	//root->val = 1;
+	//left1->val = 2;
+	//right1->val = 3;
+	//root->left = left1;
+	//root->right = right1;
+	//s4.
+	//return 0;
+//}
