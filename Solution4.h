@@ -34,4 +34,7 @@ public:
 	void permutation(set<string>& ans, string str, int index);
 
 	int MoreThanHalfNum_Solution(vector<int> numbers);//JZ39
+
+	//41
+	vector<int> array;
 };
