@@ -17,6 +17,8 @@ public:
                 }
             }
         }
+
+        return count;
     }
 };
 

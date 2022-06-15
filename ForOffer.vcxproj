@@ -58,7 +58,9 @@
     <ClCompile Include="JZ4.cpp" />
     <ClCompile Include="JZ39.cpp" />
     <ClCompile Include="JZ40.cpp" />
-    <ClCompile Include="JZ41cpp.cpp" />
+    <ClCompile Include="JZ41.cpp" />
+    <ClCompile Include="JZ42.cpp" />
+    <ClCompile Include="JZ43.cpp" />
     <ClCompile Include="JZ5.cpp" />
     <ClCompile Include="JZ6.cpp" />
     <ClCompile Include="JZ7.cpp" />

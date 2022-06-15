@@ -36,5 +36,5 @@ public:
 	int MoreThanHalfNum_Solution(vector<int> numbers);//JZ39
 
 	//41
-	vector<int> array;
+
 };
