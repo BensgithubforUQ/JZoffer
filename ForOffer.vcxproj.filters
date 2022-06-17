@@ -44,6 +44,16 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="JZ37.cpp" />
     <ClCompile Include="JZ38.cpp" />
+    <ClCompile Include="JZ39.cpp" />
+    <ClCompile Include="JZ40.cpp" />
+    <ClCompile Include="JZ41.cpp" />
+    <ClCompile Include="JZ42.cpp" />
+    <ClCompile Include="JZ43.cpp" />
+    <ClCompile Include="JZ44.cpp" />
+    <ClCompile Include="JZ45.cpp" />
+    <ClCompile Include="JZ46.cpp" />
+    <ClCompile Include="JZ47.cpp" />
+    <ClCompile Include="JZ48.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Solution.h">
