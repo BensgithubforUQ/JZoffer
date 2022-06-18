@@ -22,7 +22,26 @@ public:
         return n % 1000000007;
     }//暴力解法
 
-    int recursion() {
 
+    //二分法
+    int InversePairs_divide(vector<int> data) {
+        vector<int> v; //辅助数组
+        int ret = 0; 
+        for (int i = 0; i < data.size(); ++i) {
+            int len = v.size();
+            int l = 0, r = len;
+            while (l < r) { //二分法
+                int mid = l + (r - l) / 2;
+                if (data[i] > v[mid]) {
+                    r = mid;
+                }
+                else {
+                    l = mid + 1;
+                }
+            }
+            ret = (ret + l) % 1000000007;
+            v.insert(v.begin() + l, data[i]);
+        }
+        return ret;
     }
 };
