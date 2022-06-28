@@ -54,6 +54,9 @@
     <ClCompile Include="JZ46.cpp" />
     <ClCompile Include="JZ47.cpp" />
     <ClCompile Include="JZ48.cpp" />
+    <ClCompile Include="JZ49.cpp" />
+    <ClCompile Include="JZ50.cpp" />
+    <ClCompile Include="JZ51.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Solution.h">
