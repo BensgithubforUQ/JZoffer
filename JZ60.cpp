@@ -16,7 +16,7 @@ public:
         }
         int temp = 0;
         for (int i = 0; i < numbers.size() - 1; i++) {
-            if (numbers[i] == 0) zero++;
+            if (numbers[i] >= 0) zero++;
             else {
                 if (zero == 4) return false;
                 int gap = numbers[i + 1] - numbers[i];
