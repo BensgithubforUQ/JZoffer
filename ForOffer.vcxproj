@@ -81,6 +81,10 @@
     <ClCompile Include="JZ6.cpp" />
     <ClCompile Include="JZ60.cpp" />
     <ClCompile Include="JZ63.cpp" />
+    <ClCompile Include="JZ66.cpp" />
+    <ClCompile Include="JZ67.cpp" />
+    <ClCompile Include="JZ68.cpp" />
+    <ClCompile Include="JZ69.cpp" />
     <ClCompile Include="JZ7.cpp" />
     <ClCompile Include="JZ8.cpp" />
     <ClCompile Include="JZ9.cpp" />
