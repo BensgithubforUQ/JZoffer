@@ -86,7 +86,17 @@
     <ClCompile Include="JZ68.cpp" />
     <ClCompile Include="JZ69.cpp" />
     <ClCompile Include="JZ7.cpp" />
+    <ClCompile Include="JZ70.cpp" />
+    <ClCompile Include="JZ73.cpp" />
+    <ClCompile Include="JZ74.cpp" />
+    <ClCompile Include="JZ75.cpp" />
+    <ClCompile Include="JZ76.cpp" />
+    <ClCompile Include="JZ77.cpp" />
+    <ClCompile Include="JZ78.cpp" />
+    <ClCompile Include="JZ79.cpp" />
     <ClCompile Include="JZ8.cpp" />
+    <ClCompile Include="JZ81.cpp" />
+    <ClCompile Include="JZ82.cpp" />
     <ClCompile Include="JZ9.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

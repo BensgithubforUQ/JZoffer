@@ -57,6 +57,30 @@
     <ClCompile Include="JZ49.cpp" />
     <ClCompile Include="JZ50.cpp" />
     <ClCompile Include="JZ51.cpp" />
+    <ClCompile Include="JZ52.cpp" />
+    <ClCompile Include="JZ53.cpp" />
+    <ClCompile Include="JZ54.cpp" />
+    <ClCompile Include="JZ55.cpp" />
+    <ClCompile Include="JZ56.cpp" />
+    <ClCompile Include="JZ57.cpp" />
+    <ClCompile Include="JZ58.cpp" />
+    <ClCompile Include="JZ59.cpp" />
+    <ClCompile Include="JZ60.cpp" />
+    <ClCompile Include="JZ63.cpp" />
+    <ClCompile Include="JZ66.cpp" />
+    <ClCompile Include="JZ67.cpp" />
+    <ClCompile Include="JZ68.cpp" />
+    <ClCompile Include="JZ69.cpp" />
+    <ClCompile Include="JZ70.cpp" />
+    <ClCompile Include="JZ73.cpp" />
+    <ClCompile Include="JZ74.cpp" />
+    <ClCompile Include="JZ75.cpp" />
+    <ClCompile Include="JZ76.cpp" />
+    <ClCompile Include="JZ77.cpp" />
+    <ClCompile Include="JZ78.cpp" />
+    <ClCompile Include="JZ79.cpp" />
+    <ClCompile Include="JZ81.cpp" />
+    <ClCompile Include="JZ82.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Solution.h">
