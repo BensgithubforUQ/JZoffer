@@ -97,6 +97,9 @@
     <ClCompile Include="JZ8.cpp" />
     <ClCompile Include="JZ81.cpp" />
     <ClCompile Include="JZ82.cpp" />
+    <ClCompile Include="JZ84.cpp" />
+    <ClCompile Include="JZ85.cpp" />
+    <ClCompile Include="JZ86.cpp" />
     <ClCompile Include="JZ9.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

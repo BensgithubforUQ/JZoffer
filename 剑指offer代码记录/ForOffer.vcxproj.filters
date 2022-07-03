@@ -81,6 +81,9 @@
     <ClCompile Include="JZ79.cpp" />
     <ClCompile Include="JZ81.cpp" />
     <ClCompile Include="JZ82.cpp" />
+    <ClCompile Include="JZ85.cpp" />
+    <ClCompile Include="JZ84.cpp" />
+    <ClCompile Include="JZ86.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Solution.h">
