@@ -162,3 +162,51 @@ void maxSubArrayMutil() {//动态规划版本，计算数组中子数组最大连续乘积
     }
     cout << res << endl;
 }
+
+void maxlength_subArrayPostive_multi() { //变种，这道题求连续乘积为整数的最长子串
+    //这道题的坑点在于，他输入的值很多，而且乘积很大，那就不能简单的用乘法结果来判断正负。
+    //而这道题里面实际上乘积大小并不重要，重要的只有正负或者0，因此在输入的时候我就把他转变成+-1和0，这样就不会超出int的比较范围了
+    int n;
+    cin >> n;
+    vector<int> arr;
+    int temp;
+    while (cin >> temp) {
+        if (temp > 0) temp = 1;
+        if (temp == 0) temp = 0;
+        if (temp < 0) temp = -1;
+        arr.push_back(temp);
+    }
+    int pos = 0, neg = 0, zero = 0;
+    if (arr[0] > 0) pos = 1;
+    if (arr[0] < 0) neg = 1;
+    if (arr[0] == 0) zero = 1;
+    int res = 0;
+    int mx = arr[0];
+    int mn = arr[0];
+    for (int i = 1; i < n; i++) {
+        //int max_t = max(mx*arr[i],max(arr[i],arr[i]*mn));
+        //int min_t = min(mn*arr[i],min(arr[i],arr[i]*mx));
+        //mx = max_t;
+        //mn = min_t;
+        mx *= arr[i];
+        if (mx > 0) {
+            if (neg != 0) pos = neg + 1; //乘积结果为正数，如果之前不是负数，那直接++，如果之前是负数，那就负数长度++
+            else pos++;
+            neg = 0;
+        }
+        if (mx < 0) {
+            if (pos != 0) neg = pos + 1;//动态规划的思想，当乘积结果为负数的时候，就把之前正数的长度++
+            else neg++;
+            pos = 0;
+        }
+        if (mx == 0) {//当出现0的时候，无论如何都无法乘积得正了，因此把pos和neg都赋0，然后mx赋值为1,
+            //如果下一个值不为0，那就可以继续判断mx的正负，如果依然是0，则重复此步骤。
+            zero = 1;
+            pos = 0;
+            neg = 0;
+            mx = 1;
+        }
+        res = res > pos ? res : pos;
+    }
+    cout << res << endl;
+}
