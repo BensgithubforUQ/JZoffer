@@ -89,3 +89,76 @@ void binarySearchTreeCount() {
     }
     cout << count[n] << endl;
 }
+
+
+void maxSubArray() {
+    int n;
+    cin >> n;
+    int temp;
+    vector<int> arr;
+    while (cin >> temp) arr.push_back(temp);
+    int max = arr[0];
+    int res = 0;
+    //int l,r;
+    for (int right = 0, left = 0; left < n; right++) {
+        if (right == n) {
+            right = ++left;
+            res = arr[right];
+            continue;
+        }
+        res += arr[right];
+        if (arr[right] >= res) {
+            left = right;
+            res = arr[right];
+        }
+        if (res >= max) {
+            max = res;
+            //r = right;
+            //l = left;
+        }
+    }
+    cout << max << endl;
+}
+
+
+void maxSubArray_dp() { //动态规划版本，计算数组中子数组最大连续和
+    int n;
+    cin >> n;
+    int temp;
+    vector<int> arr;
+    while (cin >> temp) arr.push_back(temp);
+    int max = arr[0];
+    vector<int> dp;
+    dp.push_back(arr[0]);
+    for (int i = 1; i < n; i++) {
+        int temp = dp[i - 1] + arr[i] > arr[i] ? dp[i - 1] + arr[i] : arr[i];
+        dp.push_back(temp);
+        max = max > dp[i] ? max : dp[i];
+    }
+    cout << max << endl;
+}
+
+void maxSubArrayMutil() {//动态规划版本，计算数组中子数组最大连续乘积
+    //这个题注意，因为有负数的存在，所以只记录最大值没有用
+    //需要付出巨大的代价用双指针判断下一个负数在哪儿，还很麻烦
+    //所以这里直接再放一个最小值进来。
+    //最小值集会自动的维持最小值，遇到一对负数就会自动取负数，遇到单个负数就会把上一个最大值和这个负数相乘
+    //最大值集合会自动维持最大做，遇到一对负数就会把第二个负数和前一个最小值相乘，遇到单个负数就会自动取负数  
+    //遇到负数的情况，就整个最小值集合出来，因为负数最小值乘以负数就是整数最大值。
+    int n;
+    cin >> n;
+    int temp;
+    vector<int> arr;
+    while (cin >> temp) arr.push_back(temp); //n个
+    int res = arr[0];
+    int max_dp = arr[0];
+    int min_dp = arr[0];
+    for (int i = 1; i < n; i++) {
+        int max_temp = max_dp;
+        int min_temp = min_dp;
+        max_dp = max(max_temp * arr[i], max(arr[i], min_temp * arr[i]));
+        min_dp = min(min_temp * arr[i], min(arr[i], max_temp * arr[i]));
+        res = max(max_dp, res);
+    }
+    cout << res << endl;
+}
