@@ -1,0 +1,4 @@
+﻿  main.cpp
+G:\learnNote_algorithm\动态规划\线性BP\线性bp\head.h(1,1): warning C4828: 文件包含在偏移 0x128 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
+G:\learnNote_algorithm\动态规划\线性BP\线性bp\main.cpp(12,9): warning C4101: “array”: 未引用的局部变量
+  线性bp.vcxproj -> G:\learnNote_algorithm\动态规划\线性BP\线性bp\x64\Debug\线性bp.exe
