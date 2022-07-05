@@ -14,3 +14,10 @@ void jumpFloorExtra(); //进阶版跳台阶，但是更简单？
 void jumpFloorCost(); //带键值的跳台阶
 
 void binarySearchTreeCount();// 有n个结点的二叉搜索树有多少种形态
+
+void maxSubArray(); //连续子数组最大和,非动态规划算法，但是思路差不多，算是双指针？
+void maxSubArray_dp(); //连续子数组最大和，动态规划算法。
+
+void maxlength_subArrayPostive_multi();//变种，这道题求连续乘积为整数的最长子串
+
+void circleArrayMaxSum();//变种，环形连续数组的子数组最大和。

@@ -210,3 +210,36 @@ void maxlength_subArrayPostive_multi() { //±äÖÖ£¬ÕâµÀÌâÇóÁ¬Ğø³Ë»ıÎªÕûÊıµÄ×î³¤×Ó´
     }
     cout << res << endl;
 }
+
+
+void circleArrayMaxSum() { //Ë¼Â·»¹ÊÇÀàËÆ£¬µ«ÊÇÓĞ¸üÓÅµÄ½â·¨£¬ÔÙ¿¼ÂÇÒ»¸ö×îĞ¡ºÍµÄÖµ
+    int n;
+    cin >> n;
+    int temp;
+    vector<int> arr;
+    while (cin >> temp) arr.push_back(temp);
+    for (int i = 0; i < n - 1; i++) arr.push_back(arr[i]); //Ë«±¶µÄ³¤¶È£¬³ıÁË×îºóÒ»¸öÖµ¡£
+    int len = 1;
+    int dp = arr[0];
+    int mx = dp;
+    for (int i = 1, j = 1; i < n; j++) {
+        if (dp + arr[j] < arr[j]) {
+            i = j; //iÅ²¶¯µÄÇé¿ö£¬ĞÂÖµ´óÓÚ¹ıÈ¥Öµ¼ÓĞÂÖµ£¬¹ıÈ¥Îª¸º¡£
+            dp = arr[j];
+            len = 1;
+        }
+        else { //·ñÔò¾Í¼ÌĞø±éÀú£¬È»ºóÔö¼Ó×ÓÊı×é³¤¶È
+            dp += arr[j];
+            len++;
+        }
+        mx = max(mx, dp);
+        if (len == n) { //Èç¹û×ÓÊı×é³¤¶ÈµÈÓÚÊäÈëÊı×é³¤¶È£¬ÔòËµÃ÷Õû¸öÊı×é¶¼±éÀúÁË£¬iÓÒÒÆ
+            i++;
+            j = i;
+            dp = arr[i];
+            len = 1;
+
+        }
+    }
+    cout << mx << endl;
+}
