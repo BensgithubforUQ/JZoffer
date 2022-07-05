@@ -21,3 +21,7 @@ void maxSubArray_dp(); //连续子数组最大和，动态规划算法。
 void maxlength_subArrayPostive_multi();//变种，这道题求连续乘积为整数的最长子串
 
 void circleArrayMaxSum();//变种，环形连续数组的子数组最大和。
+
+void matrixMaxSum();// 变种，子矩阵的最大和。
+
+void minPathMatrix();//变种，矩阵路径最小值

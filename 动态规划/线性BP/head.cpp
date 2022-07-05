@@ -243,3 +243,62 @@ void circleArrayMaxSum() { //Ë¼Â·»¹ÊÇÀàËÆ£¬µ«ÊÇÓĞ¸üÓÅµÄ½â·¨£¬ÔÙ¿¼ÂÇÒ»¸ö×îĞ¡ºÍµÄÖ
     }
     cout << mx << endl;
 }
+
+void matrixMaxSum() {
+    int n;
+    cin >> n;
+    int** arr = new int* [n];
+    for (int i = 0; i < n; i++) {
+        arr[i] = new int[n];
+        for (int j = 0; j < n; j++) {
+            cin >> arr[i][j];
+        }
+    }
+    if (n == 1) {
+        cout << arr[0][0] << endl;
+        return;
+    }
+    int res = INT_MIN; // - 2 31 
+    for (int i = 0; i < n; i++) { 
+        vector<int>sum(n, 0); //ĞĞµÄÖµµÄÀÛ¼ÓºÍ
+        for (int j = i; j < n; j++) {
+            int temp = -127;
+            for (int k = 0; k < n; k++) {
+                sum[k] += arr[k][j]; //ÀÛ¼ÓĞĞµÄÖµ
+                temp = max(temp + sum[k], sum[k]); //ÅĞ¶Ïtemp¼ÓÏÂÒ»ĞĞÊÇ·ñ¸ü´ó£¬Èç¹ûÏÂÒ»ĞĞ±¾Éí¸ü´ó£¬Ôò¸üĞÂtemp
+                res = max(res, temp); //µ±Ç°½á¹û¾ÍÊÇÉÏÒ»¸ö×î´ó½á¹ûºÍtemp±È½Ï
+            }
+        }
+    }
+    cout << res << endl; //Êä³ö×î´óµÄÖµ
+}
+
+void minPathMatrix() { //×¢Òâ£¬Õâ¸öÌâÊÇÒªÕÒ×îĞ¡Öµ£¬Õâ¿É±È×î´óÖµÄÑ¶àÁË
+    int  n, m;
+    cin >> n;
+    cin >> m;
+    vector<vector<int>> arr(n, vector<int>(m, 0)); //³õÊ¼»¯Ò»²¨
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            cin >> arr[i][j];
+
+    //int sum = arr[0][0];
+    int i = 0, j = 0;
+    for (i = n - 1, j = m - 1; j > 0; j--) arr[i][j - 1] += arr[i][j]; //Ê×ÏÈ¼ÆËãÎ»ÒÆµ½±ß½çºóµÄÎ¨Ò»Â·¾¶µÄÖµ×÷Îªdp
+    for (i = n - 1, j = m - 1; i > 0; i--) arr[i - 1][j] += arr[i][j];
+    if (n == 1 || m == 1) { //È»ºóÅĞ¶ÏÌØÊâÇé¿ö£¬µ±¾ØÕóÎªÒ»ÌõÏßµÄÊ±ºò£¬´ËÊ±ÒÑ¾­µÃ³ö´ğ°¸¡£
+        cout << arr[0][0] << endl;
+        return;
+    }
+    for (i = n - 2; i >= 0; i--) //È»ºó¿ªÊ¼¿´ÆÕ±éÇé¿ö
+        //Ö®Ç°¼ÆËãµÄÊÇ±ß½ç£¬ÏÖÔÚ°Ñ±ß½çÍùÄÚËõ£¬¼ÆËãĞÂµÄ±ß½çµÄ×îĞ¡Â·¾¶
+        for (j = m - 2; j >= 0; j--)//ÒªÃ´ºÍÓÒ²àÏà¼Ó£¬ÒªÃ´ºÍÏÂ²àÏà¼Ó£¬ÀûÓÃÖ®Ç°µÃµ½µÄ±ß½çµÄdpºÍµ±Ç°µÄarr[i][j]Ïà¼Ó
+            arr[i][j] += min(arr[i][j + 1], arr[i + 1][j]);
+    //±éÀúÍêÖ®ºó£¬×îÖÕ¾ÍµÃµ½arr[0][0]µÄÖµ£¬¾ÍÊÇ¾­¹ıÒ»Â·ÏßĞÔbpµÃµ½µÄÖµ¡£
+    cout << arr[0][0] << endl;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++)
+            cout << arr[i][j] << " ";
+        cout << endl;
+    }
+}
