@@ -302,3 +302,46 @@ void minPathMatrix() { //注意，这个题是要找最小值，这可比最大值难多了
         cout << endl;
     }
 }
+
+
+int calculateHP(int a, int b) { //a是当前格子的可能扣的血量，或者可能回的血量
+    //b是已经计算好的到达下一个点之前需要的最低血量
+    if (b > a) a = b - a;  //那么很明显，如果要求的血量比当前格子的值大
+    //则有两种可能，一种是当前格子扣血，那意味着在当前格子需要b-a的血量才能安全渡过后面的流程
+    //第二种可能是当前格子是回血，那同样的，这意味着你只需要b-a的血量进入当前格子就能渡过后面的流程，所以是一样的
+    else a = 1; //或者，要求的血量比当前格子回血的血量少，那无所谓了，只要在进入该格子之前你还活着就行，设置为1
+    return a;
+}
+
+void minHP() { //后面的流程和上一个问题的最小路径和类似，只不过比较方法额外增加了一个是否能活
+    int n, m;
+    cin >> n;
+    cin >> m;
+    vector<vector<int>> arr(n, vector<int>(m, 0));
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++) {
+            cin >> arr[i][j];
+        }
+    arr[n - 1][m - 1] = calculateHP(arr[n - 1][m - 1], 1);
+    for (int i = n - 1, j = m - 1; i > 0; i--) {
+        arr[i - 1][j] = calculateHP(arr[i - 1][j], arr[i][j]);
+    }
+
+    for (int i = n - 1, j = m - 1; j > 0; j--) {
+        arr[i][j - 1] = calculateHP(arr[i][j - 1], arr[i][j]);
+    }
+
+    if (n - 1 == 1 || m - 1 == 1) {
+        cout << arr[0][0];
+        return;
+    }
+    for (int j = m - 2; j >= 0; j--)
+        for (int i = n - 2; i >= 0; i--) {
+            int right, down;
+            right = calculateHP(arr[i][j], arr[i][j + 1]);
+            down = calculateHP(arr[i][j], arr[i + 1][j]);
+            arr[i][j] = min(right, down);
+        }
+    cout << arr[0][0] << endl;
+
+}

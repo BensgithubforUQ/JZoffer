@@ -22,6 +22,10 @@ void maxlength_subArrayPostive_multi();//变种，这道题求连续乘积为整数的最长子串
 
 void circleArrayMaxSum();//变种，环形连续数组的子数组最大和。
 
-void matrixMaxSum();// 变种，子矩阵的最大和。
+void matrixMaxSum();// 变种，子矩阵的最大和，和数组的类似，只不过这个是矩阵和的比较，数组是比较单个值。
 
 void minPathMatrix();//变种，矩阵路径最小值
+
+int calculateHP(int a,int b);//变种，龙与地下地下城的辅助函数
+void minHP();//龙与地下城问题，需要多少基础血量才能确保有可能通关。
+//本质是矩阵路径最小和的变种
