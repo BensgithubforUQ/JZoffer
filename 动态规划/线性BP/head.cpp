@@ -345,3 +345,61 @@ void minHP() { //∫Û√Êµƒ¡˜≥Ã∫Õ…œ“ª∏ˆŒ Ã‚µƒ◊Ó–°¬∑æ∂∫Õ¿‡À∆£¨÷ª≤ªπ˝±»Ωœ∑Ω∑®∂ÓÕ‚‘ˆº”¡
     cout << arr[0][0] << endl;
 
 }
+
+
+void horseNextPos(int x, int y, vector<vector<int>>& arr) {
+    if (x >= 0 && y >= 0 && y < arr.size() && x < arr[0].size())
+        arr[x][y] = -1;
+}
+
+int countPath(int left, int up) {
+    if (left > 0 && up > 0) return left + up;
+    if (left < 0 && up < 0) return -1;
+    return max(up, left);
+}
+
+void soldierCrossRivier() {
+    int n, m;
+    int x, y;
+    cin >> n >> m >> x >> y;
+    n = n + 1;
+    m = m + 1;
+    vector<vector<int>> arr(m, vector<int>(n, 0));
+    horseNextPos(x + 2, y + 1, arr);
+    horseNextPos(x + 1, y + 2, arr);
+    horseNextPos(x - 1, y + 2, arr);
+    horseNextPos(x - 2, y + 1, arr);
+    horseNextPos(x - 2, y - 1, arr);
+    horseNextPos(x - 1, y - 2, arr);
+    horseNextPos(x + 1, y - 2, arr);
+    horseNextPos(x + 2, y - 1, arr);
+    for (int i = 0; i < m; i++) {
+        if (arr[i][0] != -1)
+            arr[i][0] = 1;
+        if (i > 0)
+            if (arr[i - 1][0] == -1)
+                arr[i][0] = -1;
+    }
+    for (int j = 0; j < n; j++) {
+        if (arr[0][j] != -1)
+            arr[0][j] = 1;
+        if (j > 0)
+            if (arr[0][j - 1] == -1)
+                arr[0][j] = -1;
+    }
+    if (n == 1 || m == 1) {
+        cout << arr[m - 1][n - 1];
+        return;
+    }
+    for (int i = 1; i < m; i++)
+        for (int j = 1; j < n; j++) {
+            if (arr[i][j] == -1) continue;
+            arr[i][j] = countPath(arr[i - 1][j], arr[i][j - 1]);
+        }
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++)
+            cout << arr[i][j] << " ";
+        cout << endl;
+    }
+
+}
