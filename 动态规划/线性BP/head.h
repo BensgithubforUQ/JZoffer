@@ -30,3 +30,7 @@ int calculateHP(int a,int b);//变种，龙与地下地下城的辅助函数
 void minHP();//龙与地下城问题，需要多少基础血量才能确保有可能通关。
 //本质是矩阵路径最小和的变种
 
+
+void horseNextPos(int x, int y, vector<vector<long long>>& arr); //棋盘拱卒
+long long countPath(long long left, long long up); //计算下个点有多少种路径
+void soldierCrossRivier(); //主函数

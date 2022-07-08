@@ -347,12 +347,12 @@ void minHP() { //∫Û√Êµƒ¡˜≥Ã∫Õ…œ“ª∏ˆŒ Ã‚µƒ◊Ó–°¬∑æ∂∫Õ¿‡À∆£¨÷ª≤ªπ˝±»Ωœ∑Ω∑®∂ÓÕ‚‘ˆº”¡
 }
 
 
-void horseNextPos(int x, int y, vector<vector<int>>& arr) {
-    if (x >= 0 && y >= 0 && y < arr.size() && x < arr[0].size())
+void horseNextPos(int x, int y, vector<vector<long long>>& arr) {
+    if (x >= 0 && y >= 0 && x < arr.size() && y < arr[0].size())
         arr[x][y] = -1;
 }
 
-int countPath(int left, int up) {
+long long countPath(long long left, long long up) {
     if (left > 0 && up > 0) return left + up;
     if (left < 0 && up < 0) return -1;
     return max(up, left);
@@ -364,7 +364,8 @@ void soldierCrossRivier() {
     cin >> n >> m >> x >> y;
     n = n + 1;
     m = m + 1;
-    vector<vector<int>> arr(m, vector<int>(n, 0));
+    vector<vector<long long>> arr(n, vector<long long>(m, 0));
+    horseNextPos(x, y, arr);
     horseNextPos(x + 2, y + 1, arr);
     horseNextPos(x + 1, y + 2, arr);
     horseNextPos(x - 1, y + 2, arr);
@@ -373,14 +374,14 @@ void soldierCrossRivier() {
     horseNextPos(x - 1, y - 2, arr);
     horseNextPos(x + 1, y - 2, arr);
     horseNextPos(x + 2, y - 1, arr);
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < n; i++) {
         if (arr[i][0] != -1)
             arr[i][0] = 1;
         if (i > 0)
             if (arr[i - 1][0] == -1)
                 arr[i][0] = -1;
     }
-    for (int j = 0; j < n; j++) {
+    for (int j = 0; j < m; j++) {
         if (arr[0][j] != -1)
             arr[0][j] = 1;
         if (j > 0)
@@ -388,18 +389,14 @@ void soldierCrossRivier() {
                 arr[0][j] = -1;
     }
     if (n == 1 || m == 1) {
-        cout << arr[m - 1][n - 1];
+        cout << arr[n - 1][m - 1];
         return;
     }
-    for (int i = 1; i < m; i++)
-        for (int j = 1; j < n; j++) {
+    for (int i = 1; i < n; i++)
+        for (int j = 1; j < m; j++) {
             if (arr[i][j] == -1) continue;
             arr[i][j] = countPath(arr[i - 1][j], arr[i][j - 1]);
         }
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++)
-            cout << arr[i][j] << " ";
-        cout << endl;
-    }
+    cout << arr[n - 1][m - 1];
 
 }
