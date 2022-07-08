@@ -34,3 +34,20 @@ void minHP();//龙与地下城问题，需要多少基础血量才能确保有可能通关。
 void horseNextPos(int x, int y, vector<vector<long long>>& arr); //棋盘拱卒
 long long countPath(long long left, long long up); //计算下个点有多少种路径
 void soldierCrossRivier(); //主函数
+
+
+//超重点知识，
+void maxSubArrayAscend(); //最长上升子序列(一)
+//整个数组，记录原序列对应点位之前，有多少小于本点位的数字，这是原意，但是要dp
+//dp用一个双层循环，第一个循环是i = 0到n-1，第二个循环遍历0到i-1的部分
+//比较arr[1]和之前的点位的值的大小，如果大于之前的点位，则取dp数组中的值 + 1,意为这个点是可以接在之前的那个点伤
+//然后取max值，dp[i]一定是max+1
+
+
+//然后是进阶版
+void antiMissile_dp(); //这个题建议记下来。。。。有点东西的
+//拦截导弹问题
+//这个问题分两个部分，第一个部分是，最长上升子序列，但是这个问题里面可以是相等的，不是严格的上升子序列
+//第二个部分，最少有几个上升子序列、
+//Dilworth定理:
+//最少的下降序列个数就等于整个序列最长上升子序列的长度

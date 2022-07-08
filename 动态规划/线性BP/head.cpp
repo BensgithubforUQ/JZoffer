@@ -400,3 +400,69 @@ void soldierCrossRivier() {
     cout << arr[n - 1][m - 1];
 
 }
+
+void maxSubArrayAscend() { //重点知识。
+    int n;
+    cin >> n;
+    vector<int> arr(n, 0);
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    vector<int> res(n, 1);
+
+    for (int i = 1; i < n; i++) {
+        int mx = 0;
+        for (int j = 0; j < i; j++) {
+            if (arr[i] > arr[j]) {
+                mx = max(mx, res[j]);
+            }
+        }
+        res[i] = mx + 1;
+    }
+    int mx = 1;
+    for (auto i : res)
+        mx = max(mx, i);
+    cout << mx;
+}
+
+void antiMissile_dp() { //拦截导弹问题
+    int n;
+    cin >> n;
+    vector<int>arr(n, 0);
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    vector<int>res(n, 1);
+    for (int i = 1; i < n; i++) {
+        int mx = 0;
+        for (int j = 0; j < i; j++) {
+            if (arr[i] <= arr[j]) {
+                res[i] = max(res[j] + 1, mx);
+            }
+            mx = res[i];
+        }
+    }
+    if (n == 0) {
+        cout << 1 << endl;
+        cout << 1 << endl;
+        return;
+    }
+    int mx = 0;
+    for (int i = 0; i < n; i++) {
+        mx = max(mx, res[i]);
+        res[i] = 1;
+    }
+    //for(auto i : res) cout<<i<<" ";
+    int num = 0;
+    for (int i = 1; i < n; i++) {
+        int temp = 0;
+        for (int j = 0; j < i; j++) {
+            if (arr[j] < arr[i]) {
+                temp = max(res[j], temp);
+            }
+        }
+        res[i] += temp;
+        num = max(num, res[i]);
+    }
+
+    //cout<<endl;
+    cout << mx << endl;
+    cout << num << endl;
+}
