@@ -466,3 +466,101 @@ void antiMissile_dp() { //拦截导弹问题
     cout << mx << endl;
     cout << num << endl;
 }
+
+
+void smallBigSmall() { //合唱团峰形排队问题，去掉几个人可以形成峰形
+    int n;
+    cin >> n;
+    vector<int> arr(n, 0);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    //所谓的合唱团，就是要左变边的都小于，右边的都大于。
+    //也就是求目标点的左侧是最大升序，右边是最大降序
+    vector<int> ascend(n, 0);
+    vector<int> descend(n, 0);
+    ascend[0] = 1;
+    descend[n - 1] = 1;
+    for (int i = 1; i < n; i++) {
+        int temp = 0;
+        for (int j = 0; j < i; j++) {
+            if (arr[j] < arr[i])
+                temp = max(temp, ascend[j]); //temp是比较的最大值
+        }
+        ascend[i] = temp + 1;
+    }
+
+    for (int i = n - 2; i >= 0; i--) {
+        int temp = 0;
+        for (int j = n - 1; j > i; j--) {
+            if (arr[j] < arr[i])
+                temp = max(temp, descend[j]); //temp是比较的最大值
+        }
+        descend[i] = temp + 1;
+    }
+    int mx = 0;
+
+    for (int i = 0; i < n; i++) {
+        mx = max(mx, ascend[i] + descend[i] - 1);
+    }
+    //cout<<mx<<endl;
+    cout << n - mx << endl;
+    //for(auto i:ascend) cout<<i<<" ";
+    //cout<<endl;
+    //for(auto i:descend) cout<<i<<" ";
+}
+
+void envelopes() { //这个题我觉得答案错了，我考虑的这个更周到。
+    //题解没有考虑长宽互换的情况，我这个考虑到了，所以答案有可能会比题解得到的答案多一点。
+    int n;
+    cin >> n;
+    vector<pair<int, int>> enve(n, pair<int, int>(0, 0));
+    for (int i = 0; i < n;
+        i++) { //在这个阶段就处理下数据吧，first小，second大
+        int big, small;
+        cin >> big;
+        cin >> small;
+        if (big < small) {
+            int temp = big;
+            big = small;
+            small = temp;
+        }
+        enve[i].first = small;
+        enve[i].second = big;
+    }
+    //这波完了之后，还得进行一个排序，不然不好比较
+    //先排序first，然后根据second再排，都是降序
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (enve[i].first < enve[j].first) {
+                auto temp = enve[i];
+                enve[i] = enve[j];
+                enve[j] = temp;
+            }
+            if (enve[i].first == enve[j].first) {
+                if (enve[i].second < enve[j].second) {
+                    auto temp = enve[i];
+                    enve[i] = enve[j];
+                    enve[j] = temp;
+                }
+            }
+        }
+    }
+    vector<int>res(n, 1);
+    for (int i = 1; i < n; i++) {
+        for (int j = 0; j < i; j++) {
+            if (enve[i].first < enve[j].first && enve[i].second < enve[j].second) {
+                //小值小，大值也小，才算数
+                res[i] = max(res[i], res[j] + 1);
+            }
+        }
+    }
+    int mx = 0;
+    for (int i = 0; i < n; i++) {
+        //cout << res[i] << " ";
+        mx = max(mx, res[i]);
+    }
+    //cout << endl;
+    cout << mx;
+}
