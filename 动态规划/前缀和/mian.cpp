@@ -91,3 +91,30 @@ void abb() { //Ç°×ººÍµÚÈıÌâ£¬ËãÊÇ¸´Ï°Ò»ÏÂmapµÄÓÃ·¨£¬´ó¸Å¾ÍÊÇÒªÓÃÒ»¸ömap¼ÇÂ¼Êı×éÖ
         //cout<<i.first<<" "<<i.second<<endl;
     //}
 }
+
+
+//ÕıÊıÊı×é£¬m´Î²Ù×÷£¬Èı¸ö²ÎÊıirk£¬°Ñiµ½rµÄ²¿·Ö¶¼¼ÓÉÏk
+//Êı¾İÓÃlong long
+
+void elementAddK() { //²î·ÖÎÊÌâ£¬Ç°×ººÍdpÄ¿µÄ¾ÍÊÇÎªÁË¼õÉÙ±éÀú³É±¾
+    int n, m;
+    cin >> n >> m;
+    vector<long long> arr(n, 0);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    //Êı×é³õÊ¼»¯Íê±Ï
+    vector<long long> dp(n + 1, 0);
+    for (int i = 0; i < m; i++) {
+        int l, r;
+        long long k;
+        cin >> l >> r >> k;
+        dp[l - 1] += k;  
+        dp[r] -= k; 
+    }
+    for (int i = 1; i < n; i++) dp[i] += dp[i - 1]; //Í¨¹ı²î·Ö+Ç°×ººÍ£¬¾Í¿ÉÒÔÓÃÀÛ¼ÓÀ´¼ò»¯±éÀú¼Ó
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] + dp[i] << " ";
+    }
+}
