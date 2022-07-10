@@ -118,3 +118,40 @@ void elementAddK() { //差分问题，前缀和dp目的就是为了减少遍历成本
         cout << arr[i] + dp[i] << " ";
     }
 }
+
+
+void matrixAddK() { //模板方法，前缀和+差分，二位差分，这个画个图自算下，需要把左上角点和右下角点的右下角点设置为k
+    //然后画个矩形，上左两个角设置成-k。
+    int n, m, q;
+    cin >> n >> m >> q;
+    vector<vector<long long>> arr(n, vector<long long>(m, 0));
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cin >> arr[i][j];
+        }
+    }
+
+    vector<vector<long long>> dp(n, vector<long long>(m, 0));
+    for (int i = 0; i < q; i++) {
+        int x1, y1, x2, y2, k;
+        cin >> x1 >> y1 >> x2 >> y2 >> k;
+        dp[x1 - 1][y1 - 1] += k;
+        if (x2 < n && y2 < m) dp[x2][y2] += k;
+        if (y2 < m) dp[x1 - 1][y2] -= k;
+        if (x2 < n) dp[x2][y1 - 1] -= k;
+    }
+    for (int i = 0; i < n; i++)
+        for (int j = 1; j < m; j++)
+            dp[i][j] += dp[i][j - 1];
+
+    for (int j = 0; j < m; j++)
+        for (int i = 1; i < n; i++)
+            dp[i][j] += dp[i - 1][j];
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cout << arr[i][j] + dp[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
