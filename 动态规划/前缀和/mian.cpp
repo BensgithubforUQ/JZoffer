@@ -27,3 +27,40 @@ void sumOfLR() { //前缀和，注意观察数据范围 10的九次方，直接tm用long long
         cout << temp << endl;
     }
 }
+
+
+void twoDSum() { //二维的前缀和，思路一样的，只不过是多计算几步罢了。
+    int n, m, q;
+    cin >> n >> m >> q;
+    vector<vector<long long>> arr(n, vector<long long>(m, 0));
+    for (int i = 0; i < n; i++) {
+        long long temp;
+        long long sum = 0;
+        for (int j = 0; j < m; j++) {
+            cin >> temp;
+            sum += temp;
+            arr[i][j] = sum;
+            if (i > 0) arr[i][j] += arr[i - 1][j];
+        }
+    }
+
+
+    for (int i = 0; i < q; i++) {
+        long long x1, y1, x2, y2;
+        cin >> x1 >> y1 >> x2 >> y2;
+        x1--;
+        y1--;
+        x2--;
+        y2--;
+        long long xy1, xy2, xy3, xy4;
+        if (x1 > 0 && y1 > 0) xy1 = arr[x1 - 1][y1 - 1];
+        else xy1 = 0;
+        if (x1 == 0) xy2 = 0;
+        else xy2 = arr[x1 - 1][y2];
+        if (y1 == 0) xy3 = 0;
+        else xy3 = arr[x2][y1 - 1];
+        long long sum = arr[x2][y2] - xy2 - xy3 + xy1;
+        cout << sum << endl;
+    }
+
+}
