@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 using namespace std;
 
 void sumOfLR() { //前缀和，注意观察数据范围 10的九次方，直接tm用long long
@@ -63,4 +64,30 @@ void twoDSum() { //二维的前缀和，思路一样的，只不过是多计算几步罢了。
         cout << sum << endl;
     }
 
+}
+void abb() { //前缀和第三题，算是复习一下map的用法，大概就是要用一个map记录数组中还剩多少数据。
+    //每次遍历到一个数据之后，就遍历map，计算剩余的字符有多少可以和当前字符组成abb的
+    //然后map中该字符的数量--;
+    //到最后就可以求出总的abb数量了。
+    //用map大幅度降低遍历所需要的时间成本。
+    int n;
+    cin >> n;
+    vector<char> arr(n, ' ');
+    map<char, int> res;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+        res[arr[i]]++;
+    }
+    long long num = 0;
+    for (auto i : arr) {
+        for (auto j : res) {
+            if (i != j.first && j.second > 1)
+                num += (j.second - 1) * ((j.second - 1) + 1) / 2;
+        }
+        res[i]--;
+    }
+    cout << num << endl;
+    //for(auto i : res){
+        //cout<<i.first<<" "<<i.second<<endl;
+    //}
 }
