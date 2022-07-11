@@ -26,4 +26,33 @@ public:
         return pre->next; //最后返回pre指向的下一个结点，也就是当前结点的位置。
         //也可以直接返回pHead，是同一个值。
     }
+
+
+    ListNode* reverseBetween(ListNode* head, int m, int n) { //反转链表的进阶，区域反转链表
+        // write code here
+        if (head == nullptr || head->next == nullptr || m == n) return head;
+        ListNode* pre = new ListNode(0); //整个新的链表头，方便操作
+        pre->val = 0;
+        pre->next = head;
+
+        int i = 0;
+        ListNode* cur = pre;
+        ListNode* nex = head;
+        ListNode* start = pre;
+        for (; i < m; i++) {
+            if (i == m - 1) start = cur; //记录开始反转的前一个，重点
+            head = nex;
+            nex = head->next;
+            cur = head;
+        }
+        for (; i < n; i++) {
+            head = nex;
+            nex = head->next;
+            head->next = cur;
+            cur = head;
+        }
+        start->next->next = nex;
+        start->next = cur;
+        return pre->next;
+    }
 };
