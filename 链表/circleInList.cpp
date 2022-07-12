@@ -12,21 +12,6 @@ struct ListNode {
 
 class solution {
 public:
-    ListNode* FindKthToTail(ListNode* pHead, int k) { //快慢指针输出链表的后k个结点
-        // write code here
-        if (pHead == nullptr) return pHead;
-        ListNode* slow = pHead;
-        ListNode* fast = pHead;
-        for (int i = 0; i < k; i++)
-            if (fast == nullptr) return NULL;
-            else fast = fast->next;
-        while (fast) {
-            fast = fast->next;
-            slow = slow->next;
-        }
-        return slow;
-    }
-
     ListNode* EntryNodeOfLoop_Hash(ListNode* pHead) { //返回链表中的环，哈希表做法
         //判断重复问题里面，哈希表一直是个简单有效的方法
         map<ListNode*, int> nodeMap;
