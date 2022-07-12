@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// 使用递归方法来实现归并排序时，主要是两个“有序子序列”的合并
+// 使用递归方法来实现归并排序时，主要是两个“有序子序列”的合并 ----分治法，分而治之，然后吞并。
 
 //(1)将待排序序列从中间一分为二，
 //对左右两边再进行递归分割操作，使用递归，得到n个相互独立的子序列（过程像二叉树那样）；
@@ -37,7 +37,7 @@ void merge(vector<int>& arr, int begin_index, int mid_index, int end_index) {
 }
 
 int main() {
-	vector<int> arr = { 6,5,4,8,9,7,10,2,1,3,12,14 };
+	vector<int> arr = { 6,5,4,8,9,7,10,2,1,3,12,14 }; //原教旨归并排序
 	mergeSort(arr, 0, arr.size() - 1);
 	for (auto i : arr) {
 		cout << i <<" ";
