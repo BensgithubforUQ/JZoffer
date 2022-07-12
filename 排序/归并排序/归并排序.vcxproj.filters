@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ReverseList.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="combineList.cpp">
+    <ClCompile Include="MergeSort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
