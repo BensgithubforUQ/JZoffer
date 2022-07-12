@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="circleInList.cpp" />
     <ClCompile Include="ReverseList.cpp" />
     <ClCompile Include="combineList.cpp" />
   </ItemGroup>
