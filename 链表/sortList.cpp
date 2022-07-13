@@ -11,7 +11,7 @@ struct ListNode {
 };
 class Solution {
 public:
-    ListNode* Merge(ListNode* pHead1, ListNode* pHead2) { //反转链表，别傻了，两个链表合成一个，就是新整个头结点，然后插入
+    ListNode* Merge(ListNode* pHead1, ListNode* pHead2) { //两个链表合成一个，就是新整个头结点，然后插入
         ListNode* head = new ListNode(INT_MIN);
         ListNode* pre = head;
         while (pHead1 && pHead2) {
@@ -49,4 +49,43 @@ public:
         return mergeSort(lists, 0, lists.size() - 1);
     }
 
+    ListNode* sortInList(ListNode* head) {//单链表排序，不用额外的内存空间
+        // write code here
+        //分治法的终极应用，把一个链表，断成一堆结点，用归并排序的合并算法来排序
+        if (head == NULL || head->next == NULL) return head; //片段为0或者1的时候就直接返回，开始合并
+        ListNode* fast = head->next->next;
+        ListNode* mid = head->next;
+        ListNode* slow = head; //三个快慢指针找到归并排序分治的时候需要的中点
+
+        while (fast != NULL && fast->next != NULL) {
+            slow = slow->next;
+            mid = mid->next;
+            fast = fast->next->next;
+        }
+
+        //从中点断开
+        slow->next = NULL;
+        //然后就归并排序
+        return Merge(sortInList(head), sortInList(mid)); //用递归实现分治法，然后返回的链表递归的合并。
+    }
 };
+
+//int main() {
+//    ListNode* pre = new ListNode(6);
+//    ListNode* head = new ListNode(5);
+//    pre->next = head;
+//    for (int i = 0; i < 4; i++) {
+//        ListNode* node = new ListNode(4 - i);
+//        head->next = node;
+//        head = node;
+//    }
+//    Solution s;
+//    ListNode* res = s.sortInList(pre);
+//
+//
+//    while (res) {
+//        cout << res->val << " ";
+//        res = res->next;
+//    }
+//    return 0;
+//}

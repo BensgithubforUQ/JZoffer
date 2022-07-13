@@ -128,8 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="circleInList.cpp" />
+    <ClCompile Include="KthNodeInList.cpp" />
     <ClCompile Include="ReverseList.cpp" />
-    <ClCompile Include="combineList.cpp" />
+    <ClCompile Include="sortList.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

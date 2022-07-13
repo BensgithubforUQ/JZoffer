@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <deque>
 using namespace std;
 
 struct ListNode {
@@ -62,5 +63,42 @@ public:
             if (p2 == nullptr) p2 = pHead1;
         }
         return p1;//最后就该是正确的。
+    }
+
+    void ergodicList(ListNode* head, deque<int>& res) { //链表相加辅助函数，用来记录链表中的数据
+        while (head) {
+            if (head->val > 9 || head->val < 0) {
+                res.resize(0);
+                break;
+            }
+            res.push_front(head->val);
+            head = head->next;
+        }
+
+    }
+    ListNode* addInList(ListNode* head1, ListNode* head2) {//链表相加主函数
+        // write code here
+        if (head1 == nullptr) return head2;
+        if (head2 == nullptr) return head1;
+        deque<int> num1, num2;
+        ergodicList(head1, num1);
+        ergodicList(head2, num2);
+        if (num1.size() == 0 || num2.size() == 0) return NULL;
+        ListNode* tail = new ListNode(0);
+        for (int i = 0; i < num1.size() || i < num2.size(); i++) { //核心部分，新建链表和遍历记录数字的数组。
+            int temp = 0;
+            if (i < num1.size() && i < num2.size())
+                temp = num1[i] + num2[i];
+            if (i >= num1.size()) temp = num2[i];
+            if (i >= num2.size()) temp = num1[i];
+            tail->val += (temp % 10); //更新当前位置的数字
+            int over = tail->val / 10; //
+            tail->val %= 10;
+            ListNode* pre = new ListNode(temp / 10 + over);
+            pre->next = tail;
+            tail = pre;
+        }
+        if (tail->val == 0) return tail->next;
+        return tail;
     }
 };

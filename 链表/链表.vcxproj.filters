@@ -18,10 +18,13 @@
     <ClCompile Include="ReverseList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="combineList.cpp">
+    <ClCompile Include="sortList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="circleInList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="KthNodeInList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
