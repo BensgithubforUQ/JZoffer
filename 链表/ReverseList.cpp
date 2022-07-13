@@ -1,5 +1,5 @@
 #include <iostream>
-
+using namespace std;
 struct ListNode {
 	int val;
 	struct ListNode* next;
@@ -46,13 +46,14 @@ public:
             cur = head;
         }
         for (; i < n; i++) {
-            head = nex;
+            head = nex; //标准的反转格式
             nex = head->next;
             head->next = cur;
             cur = head;
         }
-        start->next->next = nex;
-        start->next = cur;
+        start->next->next = nex;//原来的起点的->next 后续链表
+        start->next = cur; //原来的重点  next<- 起点的前一个结点
+        //实现反转。
         return pre->next;
     }
 
@@ -95,5 +96,32 @@ public:
             res = reverse(res, k);
         }
         return pre->next;
+    }
+
+
+    bool isPail_supplementary(ListNode* head1, ListNode* head2) { //判断是链表是否为回文结构的辅助函数
+        while (head1 != nullptr && head2 != nullptr) {
+            if (head1->val != head2->val) return false;
+            cout << head1->val << " " << head2->val << endl;
+            head1 = head1->next;
+            head2 = head2->next;
+        }
+        return true;
+    }
+
+    bool isPail(ListNode* head) {//快慢三指针，找到中点
+        // write code here
+        if (head == nullptr || head->next == nullptr) return true;
+        ListNode* fast = head->next->next;
+        ListNode* mid = head->next;
+        ListNode* slow = head;
+        while (fast != nullptr && fast->next != nullptr) {
+            fast = fast->next->next;
+            mid = mid->next;
+            slow = slow->next;
+        }
+        slow->next = nullptr; //对半分割链表
+        head = ReverseList(head); //把其中一个反转
+        return (isPail_supplementary(head, mid) || isPail_supplementary(head, mid->next)); //因为可能是奇数，所以两个有一个真就是真
     }
 };

@@ -11,6 +11,33 @@ struct ListNode {
 };
 class Solution {
 public:
+    ListNode* oddEvenList(ListNode* head) {//将链表中的奇数位节点和偶数位节点分别提取出来，然后排列合并成一个新链表
+        // write code here
+        if (head == nullptr) return head;
+        ListNode* pre1 = new ListNode(0);
+        ListNode* pre2 = new ListNode(0);
+        int num = 1;
+        pre1->next = head;
+        ListNode* newHead1 = pre1;
+        ListNode* newHead2 = pre2;
+        while (head) {
+            if (num % 2) {//奇数
+                newHead1 = head;
+                head = head->next; //挪
+            }
+            else {
+                newHead2->next = head;
+                newHead2 = newHead2->next;
+                newHead1->next = head->next;
+                head = head->next;
+                newHead2->next = nullptr;
+            }
+            num++;
+        }
+        newHead1->next = pre2->next;
+        return pre1->next;
+    }
+
     ListNode* Merge(ListNode* pHead1, ListNode* pHead2) { //两个链表合成一个，就是新整个头结点，然后插入
         ListNode* head = new ListNode(INT_MIN);
         ListNode* pre = head;
