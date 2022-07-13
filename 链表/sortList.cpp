@@ -30,7 +30,7 @@ public:
                 newHead2 = newHead2->next;
                 newHead1->next = head->next;
                 head = head->next;
-                newHead2->next = nullptr;
+                newHead2->next = nullptr; //这步要注意，挪过来之后就不能和原来的有关系了，直接切断。
             }
             num++;
         }
