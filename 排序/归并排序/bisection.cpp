@@ -41,3 +41,25 @@ bool Find(int target, vector<vector<int> > array) {
     }
     return false;
 }
+
+int findPeakElement(vector<int>& nums) { //o(n) 寻找峰值，还有分治法，也就是二分法的做法
+       // write code here'
+    if (nums.size() == 0) return -1;
+    if (nums.size() == 1) return 0;
+    if (nums.size() == 2) {
+        if (nums[0] == nums[1]) return -1;
+        else return nums[0] < nums[1] ? 1 : 0;
+    }
+    int pre = 0;
+    int cur = 1;
+    int nex = 2;
+    if (nums[pre] > nums[cur]) return pre;
+    while (nex < nums.size()) {
+        if (nums[pre]<nums[cur] && nums[cur]>nums[nex]) return cur;
+        pre++;
+        cur++;
+        nex++;
+    }
+    if (nums[cur] > nums[pre]) return cur;
+    else return -1;
+}
