@@ -63,3 +63,33 @@ int findPeakElement(vector<int>& nums) { //o(n) 寻找峰值，还有分治法，也就是二分
     if (nums[cur] > nums[pre]) return cur;
     else return -1;
 }
+
+int findPeakElement_bisection(vector<int>& nums) {
+    //没有连相等的，因此可以选择人往高处走，水往低处流哈
+    //直接一步二分法，先找mid，看看mid那边高哪边低。反正一直往高的边凑
+    int l = 0;
+    int r = nums.size()-1;
+    int mid = (r - l) / 2 + l;
+    while (l < r) {
+        if (nums[mid] < nums[mid + 1]) l = mid + 1; //如果，mid小于右边的，那就往右边走，肯定有波峰
+        else r = mid; //否则，那说明mid起码是大于右边的，那左边是往高走，因此往左边二分法
+        mid = (r - l) / 2 + l;
+    }
+    return mid;//最后就直接返回mid就行了。
+}
+
+int minNumberInRotateArray(vector<int> arr) { //反转的非降序数组，找波谷
+    //找波谷吗，波谷就是二分法，往下走
+    int l = 0;
+    int r = arr.size() - 1;
+    int mid = (r - l) / 2 + l;
+    while (l < r) {
+        if (arr[mid] > arr[r]) l = mid + 1;  //如果mid和最右侧点比mid更大，意味着mid在反转前的后半段，则最小店肯定在mid右边
+        else if (arr[mid] < arr[r]) r = mid; //mid和最右侧点比，如果mid比右侧点小，那说明往左是降序，因此r = mid
+        else if (arr[mid] == arr[r]) r = r - 1; //如果mid刚好和最右侧点相等，那有两种可能
+        //1是mid在左侧大量相等的点区域上，这种情况内缩右侧点，如果发现更小的右侧点，就会执行第一种情况，如果没有，就会执行第二种情况
+        //2是mid在右侧大量相等的点区域上，这种情况内锁右侧点，如果发现更小的mid，就会第二种，否则就会用第一种。
+        mid = (r - l) / 2 + l;
+    }
+    return arr[mid];
+}
