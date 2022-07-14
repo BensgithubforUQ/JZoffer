@@ -97,22 +97,35 @@ public:
     }
 };
 
-//int main() {
-//    ListNode* pre = new ListNode(6);
-//    ListNode* head = new ListNode(5);
-//    pre->next = head;
-//    for (int i = 0; i < 4; i++) {
-//        ListNode* node = new ListNode(4 - i);
-//        head->next = node;
-//        head = node;
-//    }
-//    Solution s;
-//    ListNode* res = s.sortInList(pre);
-//
-//
-//    while (res) {
-//        cout << res->val << " ";
-//        res = res->next;
-//    }
-//    return 0;
-//}
+
+static int sum = 0;
+#define test(x,y)\
+    while (x) { \
+    sum+= x+y;    \
+    x--; \
+    } \
+
+
+int main() {
+    /*ListNode* pre = new ListNode(6);
+    ListNode* head = new ListNode(5);
+    pre->next = head;
+    for (int i = 0; i < 4; i++) {
+        ListNode* node = new ListNode(4 - i);
+        head->next = node;
+        head = node;
+    }
+    Solution s;
+    ListNode* res = s.sortInList(pre);
+
+
+    while (res) {
+        cout << res->val << " ";
+        res = res->next;
+    }*/
+    int x = 2;
+    int y = 1;
+    test(x, y);
+    cout <<"sum: " << sum << " x:" << x << endl;
+    return 0;
+}
