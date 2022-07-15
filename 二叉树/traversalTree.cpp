@@ -93,6 +93,22 @@ vector<vector<int> > levelOrder_deque(TreeNode* root) { //辅助栈法
     return res;
 }
 
+
+void bfs_bendPrint(TreeNode* root, vector<vector<int>>& temp, int level, bool flag) { //之字形打印，实际上还是bfs，只不过插入数组的方法不一样
+    if (root == nullptr) return;
+    if (level > temp.size()) temp.push_back(vector<int>(0));
+    if (flag) temp[level - 1].push_back(root->val);
+    else temp[level - 1].insert(temp[level - 1].begin(), root->val);
+    bfs_bendPrint(root->left, temp, level + 1, !flag);
+    bfs_bendPrint(root->right, temp, level + 1, !flag);
+}
+
+vector<vector<int> > Print(TreeNode* pRoot) {
+    vector<vector<int>> res;
+    int level = 1;
+    bfs_bendPrint(pRoot, res, level, true);
+    return res;
+}
 //int main() {
 //    TreeNode x(0);
 //    cout << sizeof(x) << endl;
