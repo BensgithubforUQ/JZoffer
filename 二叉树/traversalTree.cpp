@@ -144,6 +144,7 @@ bool isSymmetrical_iterate(TreeNode* p) { //µü´úÐ´·¨£¬ÀàËÆ²ãÐò±éÀúµÄÊÖ·¨
     return true;
 }
 
+bool flag = true;
 int lowestCommonAncestor(TreeNode* root, int p, int q) { //¶þ²æËÑË÷Ê÷ÖÐ×Ó½ÚµãµÄ¹«¹²×æÏÈ£¬µÝ¹é×ö·¨1£¬²»ÀûÓÃÌØÐÔ£¬¶þ²æÊ÷ÕÒ¹«¹²×æÏÈÍ¨ÓÃ
     // write code here
     if (root == nullptr) return 0;
@@ -151,7 +152,10 @@ int lowestCommonAncestor(TreeNode* root, int p, int q) { //¶þ²æËÑË÷Ê÷ÖÐ×Ó½ÚµãµÄ¹
     count += lowestCommonAncestor(root->left, p, q);
     count += lowestCommonAncestor(root->right, p, q);
     if (root->val == q || root->val == p) count++;
-    if (count == 2) count = root->val;
+    if (count == 2 && flag) {
+        flag = false; //Õâ¸öµØ·½ºÜ¹Ø¼ü£¬ÒòÎªÒªÕÒ×î½üµÄ×æÏÈ£¬ËùÒÔÕû¸öflag£¬µÚÒ»´ÎÕÒµ½Ö®ºó¾ÍÔÙ²»½øÕâÒ»²½
+        return root->val;
+    }
     return count;
 }
 
@@ -159,9 +163,12 @@ int lowestCommonAncestor_recursion(TreeNode* root, int p, int q) { //µÝ¹é²Ù×÷2£¬
     // write code here
     if (root == nullptr) return 0;
     int mx = max(p, q);
-    int mn = min(p, q);
-    if (root->val >= mn && root->val <= mx) return root->val; //Ö»Òªµ±Ç°µã´óÓÚµÈÓÚ½ÏÐ¡Öµ£¬»òÕßÐ¡ÓÚµÈÓÚ½Ï´óÖµ£¬¾ÍËµÃ÷ÔÚÒ»¿ÃÊ÷ÉÏ
-    return max(lowestCommonAncestor(root->left, p, q), lowestCommonAncestor(root->right, p, q));
+    int mn = min(p, q); //ÀûÓÃ¶þ²æËÑË÷Ê÷µÄÐÔÖÊ£¬×ó²à×ÓÊ÷ÑÏ¸ñÐ¡ÓÚ¸ù½Úµã
+    if (root->val >= mn && root->val <= mx) return root->val;
+    int res = 0;
+    if (root->val > mx) res = lowestCommonAncestor(root->left, p, q); 
+    if (root->val < mn) res = lowestCommonAncestor(root->right, p, q);
+    return res;
 }
 //int main() {
 //    TreeNode x(0);
