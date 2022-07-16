@@ -143,6 +143,26 @@ bool isSymmetrical_iterate(TreeNode* p) { //迭代写法，类似层序遍历的手法
     }
     return true;
 }
+
+int lowestCommonAncestor(TreeNode* root, int p, int q) { //二叉搜索树中子节点的公共祖先，递归做法1，不利用特性，二叉树找公共祖先通用
+    // write code here
+    if (root == nullptr) return 0;
+    int count = 0;
+    count += lowestCommonAncestor(root->left, p, q);
+    count += lowestCommonAncestor(root->right, p, q);
+    if (root->val == q || root->val == p) count++;
+    if (count == 2) count = root->val;
+    return count;
+}
+
+int lowestCommonAncestor_recursion(TreeNode* root, int p, int q) { //递归操作2，利用二叉搜索树的特性
+    // write code here
+    if (root == nullptr) return 0;
+    int mx = max(p, q);
+    int mn = min(p, q);
+    if (root->val >= mn && root->val <= mx) return root->val; //只要当前点大于等于较小值，或者小于等于较大值，就说明在一棵树上
+    return max(lowestCommonAncestor(root->left, p, q), lowestCommonAncestor(root->right, p, q));
+}
 //int main() {
 //    TreeNode x(0);
 //    cout << sizeof(x) << endl;
