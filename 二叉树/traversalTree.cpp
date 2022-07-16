@@ -109,6 +109,40 @@ vector<vector<int> > Print(TreeNode* pRoot) {
     bfs_bendPrint(pRoot, res, level, true);
     return res;
 }
+
+
+bool symmetrical_recursion(TreeNode* l, TreeNode* r) { //递归写法，判断是否是对称的二叉树
+    if (l == nullptr && r == nullptr) return true;
+    if (l == nullptr || r == nullptr) return false;
+    if (l->val != r->val) return false;
+    return true && symmetrical_recursion(l->left, r->right) && symmetrical_recursion(l->right, r->left); //主要思想就是一个递归
+}
+
+bool isSymmetrical(TreeNode* pRoot) {
+    if (pRoot == nullptr) return true;
+    return symmetrical_recursion(pRoot->left, pRoot->right);
+}
+
+bool isSymmetrical_iterate(TreeNode* p) { //迭代写法，类似层序遍历的手法
+    deque<TreeNode*> tree;
+    if (p == nullptr) return true; //空树是对称的
+    tree.push_front(p->left);
+    tree.push_back(p->right);
+    while (!tree.empty()) {
+        TreeNode* l = tree.front();
+        TreeNode* r = tree.back();
+        tree.pop_front();
+        tree.pop_back();
+        if (l == nullptr && r == nullptr) continue; //空节点
+        if (l == nullptr || r == nullptr || (r->val != l->val)) return false;
+        //不是上述情况，说明不是空节点，并且两个点的val相等，那么继续考虑后面的情况
+        tree.push_front(l->right);
+        tree.push_front(l->left);
+        tree.push_back(r->left);
+        tree.push_back(r->right);
+    }
+    return true;
+}
 //int main() {
 //    TreeNode x(0);
 //    cout << sizeof(x) << endl;
