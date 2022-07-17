@@ -170,6 +170,31 @@ int lowestCommonAncestor_recursion(TreeNode* root, int p, int q) { //递归操作2，
     if (root->val < mn) res = lowestCommonAncestor(root->right, p, q);
     return res;
 }
+
+TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin) {
+    //根据前序遍历数组和中序遍历数字重构二叉树
+    int p = pre.size();
+    int v = vin.size();
+    if (p != v || p == 0 || v == 0) return NULL;
+    TreeNode* root = new TreeNode(pre[0]);
+    for (int i = 0; i < p; i++) {
+        if (pre[0] == vin[i]) {
+            //中序遍历的数组中找到和前序遍历首个数一样的值，说明找到了根节点和左右子树
+            vector<int> leftpre(pre.begin() + 1, pre.begin() + i + 1); //左子树
+            vector<int> leftvin(vin.begin(), vin.begin() + i);
+
+            root->left = reConstructBinaryTree(leftpre, leftvin);
+
+            vector<int> rightpre(pre.begin() + i + 1, pre.end());
+            vector<int> rightvin(vin.begin() + i + 1, vin.end());
+
+            root->right = reConstructBinaryTree(rightpre, rightvin);
+
+            break;
+        }
+    }
+    return root;
+}
 //int main() {
 //    TreeNode x(0);
 //    cout << sizeof(x) << endl;
