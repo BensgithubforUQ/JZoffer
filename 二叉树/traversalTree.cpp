@@ -178,22 +178,61 @@ TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin) {
     if (p != v || p == 0 || v == 0) return NULL;
     TreeNode* root = new TreeNode(pre[0]);
     for (int i = 0; i < p; i++) {
-        if (pre[0] == vin[i]) {
+        if (pre[0] == vin[i]) { //中序遍历数组中，左侧的是左子树，右侧的是右子树
             //中序遍历的数组中找到和前序遍历首个数一样的值，说明找到了根节点和左右子树
             vector<int> leftpre(pre.begin() + 1, pre.begin() + i + 1); //左子树
             vector<int> leftvin(vin.begin(), vin.begin() + i);
 
-            root->left = reConstructBinaryTree(leftpre, leftvin);
+            root->left = reConstructBinaryTree(leftpre, leftvin); //返回的是左子树的根节点
 
-            vector<int> rightpre(pre.begin() + i + 1, pre.end());
+            vector<int> rightpre(pre.begin() + i + 1, pre.end()); //右子树
             vector<int> rightvin(vin.begin() + i + 1, vin.end());
 
-            root->right = reConstructBinaryTree(rightpre, rightvin);
+            root->right = reConstructBinaryTree(rightpre, rightvin); //返回的是右子树的根节点
 
             break;
         }
     }
     return root;
+}
+
+//进阶版重构二叉树，根据前序遍历和中序遍历重构二叉树，并且得出右视图
+int rebuildBinaryTree(vector<int>& pre, vector<int>& vin, vector<vector<int>>& res, int level) {
+    int p = pre.size();
+    int v = vin.size();
+    if (p != v || p == 0 || v == 0) return -1;
+    if (res.size() < level + 1) res.push_back(vector<int>(0, 0));
+    int root = pre[0];
+    for (int i = 0; i < p; i++) {
+        if (pre[0] != vin[i]) continue;
+        res.push_back(vector<int>(0, 0));
+        vector<int> leftpre(pre.begin() + 1, pre.begin() + i + 1);
+        vector<int> leftvin(vin.begin(), vin.begin() + i);
+        int leftroot = rebuildBinaryTree(leftpre, leftvin, res, level + 1);
+
+        if (leftroot != -1) res[level + 1].push_back(leftroot); //没有要求返回链表，那就用二维数组找记录每层的值
+
+        vector<int> rightpre(pre.begin() + i + 1, pre.end());
+        vector<int> rightvin(vin.begin() + i + 1, vin.end());
+        int rightroot = rebuildBinaryTree(rightpre, rightvin, res, level + 1);
+        if (rightroot != -1) res[level + 1].push_back(rightroot);
+        break;
+    }
+    return root;
+}
+
+vector<int> solve(vector<int>& xianxu, vector<int>& zhongxu) {
+    // write code here
+    vector<vector<int>> res;
+    int a;
+    if ((a = rebuildBinaryTree(xianxu, zhongxu, res, 0)) != -1)
+        res[0].push_back(a);
+    vector<int> ans;
+    cout << res.size() << endl;
+    for (int i = 0; i < res.size() - 1; i++) {
+        if (!res[i].empty()) ans.push_back(res[i].back()); //通过访问二维数组每行的末尾值来得到右视图
+    }
+    return ans;
 }
 //int main() {
 //    TreeNode x(0);
