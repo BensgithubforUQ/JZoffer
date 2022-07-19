@@ -41,3 +41,31 @@ int MoreThanHalfNum_Solution(vector<int> numbers) {
 	//如果哈希表需要排序，则要把unordered_map中的pair存放到vector里面，然后用排序算法排序
 	//当然也可以重载一个回调函数用其他stl排序。
 }
+
+int minNumberDisappeared(vector<int>& nums) { //哈希表求没有出现在数组中的最小的正整数。
+    // write code here
+    int res = 1;
+    if (nums.empty()) return res;
+    unordered_map<int, int> mp;
+    int mx = INT_MAX;
+    int mn = INT_MIN; 
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] > 0) {
+            mp[nums[i]]++;
+            if (mx < nums[i]) mx = nums[i];
+            if (mn > nums[i]) mn = nums[i];
+        }
+    }
+    if (mn > 1) return res;
+    int size = mp.size();
+    int diff = mx - mn + 1; //最大值和最小值间的差值
+    if (size == diff) return mx + 1;
+    for (int i = 1; i <= mx; i++)
+        if (mp[i] == 0)
+        {
+            cout << i << endl;
+            res = i;
+            break;
+        }
+    return res;
+}
