@@ -7,6 +7,11 @@ public:
     T arr[size];
 };
 
+
+
+
+
+
 int main() {
     const int size = 1;
     int array[size];

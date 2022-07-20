@@ -564,3 +564,18 @@ void envelopes() { //这个题我觉得答案错了，我考虑的这个更周到。
     //cout << endl;
     cout << mx;
 }
+
+
+//最小花费爬楼梯，每个楼梯需要支付代价才能上去，计算最低代价上楼顶
+int minCostClimbingStairs(vector<int>& cost) {
+    // write code here
+    vector<int> dp(2);
+    dp[0] = cost[0];
+    dp[1] = cost[1];
+    int size = cost.size();
+    for (int i = 2; i < size; i++) {
+        dp.push_back(cost[i]);
+        dp[i] = min(dp[i - 1] + dp[i], dp[i - 2] + dp[i]);
+    }
+    return min(dp[size - 1], dp[size - 2]);
+}
