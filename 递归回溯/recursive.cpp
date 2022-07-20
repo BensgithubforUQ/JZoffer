@@ -3,6 +3,10 @@
 #include <set>
 using namespace std;
 
+
+//递归问题主要就像两件事，第一件事，是递归结束条件，第二件事就是递归规则（即如何递归）
+
+
 //涂色块问题，本题问一共有几个海岛
 void island(vector<vector<char>>& g, int row, int column) { //
     if (row < 0 || column < 0 || row >= g.size() ||
@@ -92,6 +96,66 @@ int Nqueen(int n) {
     int res = 0;
     for (int i = 0; i < n; i++) {
         permute_Nqueen(column, 0, i, n, res);
+    }
+    return res;
+}
+
+
+//嵌套括号问题
+void generateBrackets(int n, int left, int right, string str, vector<string>& res) {
+    if (left == n && right == n) {
+        res.push_back(str);
+        return;
+    }
+    if (left < n) generateBrackets(n, left + 1, right, str + '(', res); 
+    if (right<n && left > right) generateBrackets(n, left, right + 1, str + ')', res); //要合法，就必须是左括号用的比右括号多才能用用括号
+}
+
+vector<string> generateParenthesis(int n) {
+    // write code here
+    //实际上可以转化成数字++的问题
+    string str = "";
+    vector<string> res;
+    //set<string> res;
+    generateBrackets(n, 0, 0, str, res);
+    //for(auto i:res) cout<<i<<endl;
+    return res;
+}
+
+
+//矩阵最长递增路径，非负数矩阵，递归+动态规划
+int findAscendingMaxPath(int r, int c, int pre, vector<vector<int> >& matrix,
+    vector<vector<int> >& dp) {
+    int row = matrix.size();
+    int column = matrix[0].size();
+    if (r >= row || c >= column || r < 0 || c < 0) return 0; //判断数组越界与否？ 结束递归条件
+    if (matrix[r][c] <= pre || matrix[r][c] < 0) { //判断是否递增？ 结束递归条件
+        dp[r][c] = 0;
+        return dp[r][c];
+    }
+    pre = matrix[r][c];
+    if (dp[r][c] == 0) { //当没有记录当前点的最大递增路径的时候，上下左右，四个方向移动
+        int up = findAscendingMaxPath(r - 1, c, pre, matrix, dp);
+        int down = findAscendingMaxPath(r + 1, c, pre, matrix, dp);
+        int left = findAscendingMaxPath(r, c - 1, pre, matrix, dp);
+        int right = findAscendingMaxPath(r, c + 1, pre, matrix, dp);
+        dp[r][c] = max(max(up, down), max(left, right)) + 1; //该点开始的最大递增路径。
+    }
+    return dp[r][c]; //如果之前已经记录过了，那就直接返回
+
+}
+
+
+int solve(vector<vector<int> >& matrix) {
+    // write code here
+    int row = matrix.size();
+    int column = matrix[0].size();
+    int res = 0;
+    vector<vector<int> >dp(row, vector<int>(column, 0));
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            res = max(findAscendingMaxPath(i, j, -1, matrix, dp), res);
+        }
     }
     return res;
 }
