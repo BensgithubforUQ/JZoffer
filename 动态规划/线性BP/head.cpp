@@ -73,6 +73,21 @@ void jumpFloorCost() { //ÌøÌ¨½×µÄÏûºÄÎÊÌâ£¬Ïà±ÈÖ®Ç°µÄÌøÌ¨½×£¬¶îÍâ¼ÓÁËÃ¿¸öÌ¨½×µÄ¼
     cout << min(cost[n - 1], cost[n - 2]) << endl;
 }
 
+
+//×îĞ¡»¨·ÑÅÀÂ¥Ìİ£¬Ã¿¸öÂ¥ÌİĞèÒªÖ§¸¶´ú¼Û²ÅÄÜÉÏÈ¥£¬¼ÆËã×îµÍ´ú¼ÛÉÏÂ¥¶¥
+int minCostClimbingStairs(vector<int>& cost) { //ÌøÌ¨½×µÄÏûºÄÎÊÌâ£¬Ïà±ÈÖ®Ç°µÄÌøÌ¨½×£¬¶îÍâ¼ÓÁËÃ¿¸öÌ¨½×µÄ¼üÖµ£¬Õû¸öÊı×é¼ÇÂ¼ÏÂ¾ÍÍêÁË
+    // write code here
+    vector<int> dp(2);
+    dp[0] = cost[0];
+    dp[1] = cost[1];
+    int size = cost.size();
+    for (int i = 2; i < size; i++) {
+        dp.push_back(cost[i]);
+        dp[i] = min(dp[i - 1] + dp[i], dp[i - 2] + dp[i]);
+    }
+    return min(dp[size - 1], dp[size - 2]);
+}
+
 void binarySearchTreeCount() {
     //¼òµ¥À´Ëµ£¬ÀûÓÃÖ®Ç°µÄ½á¹û£¬ÉèÖÃ³É×óÓÒÊ÷£¬È»ºóÍ³¼Æ×ÜºÍ¡£
     // j -1 + i - j = i -1.ÉÙÒ»¸ö½áµãÊÇÒòÎªÓĞ¸ö½áµãÔÚ¸ù½Úµã¡£
@@ -566,16 +581,24 @@ void envelopes() { //Õâ¸öÌâÎÒ¾õµÃ´ğ°¸´íÁË£¬ÎÒ¿¼ÂÇµÄÕâ¸ö¸üÖÜµ½¡£
 }
 
 
-//×îĞ¡»¨·ÑÅÀÂ¥Ìİ£¬Ã¿¸öÂ¥ÌİĞèÒªÖ§¸¶´ú¼Û²ÅÄÜÉÏÈ¥£¬¼ÆËã×îµÍ´ú¼ÛÉÏÂ¥¶¥
-int minCostClimbingStairs(vector<int>& cost) {
+string LCS(string s1, string s2) { //BM65 ×î³¤¹«¹²×ÓĞòÁĞ(¶ş)
+    //¸ø¶¨Á½¸ö×Ö·û´®str1ºÍstr2£¬Êä³öÁ½¸ö×Ö·û´®µÄ×î³¤¹«¹²×ÓĞòÁĞ¡£
+    // Èç¹û×î³¤¹«¹²×ÓĞòÁĞÎª¿Õ£¬Ôò·µ»Ø"-1"¡£Ä¿Ç°¸ø³öµÄÊı¾İ£¬½ö½ö»á´æÔÚÒ»¸ö×î³¤µÄ¹«¹²×ÓĞòÁĞ
     // write code here
-    vector<int> dp(2);
-    dp[0] = cost[0];
-    dp[1] = cost[1];
-    int size = cost.size();
-    for (int i = 2; i < size; i++) {
-        dp.push_back(cost[i]);
-        dp[i] = min(dp[i - 1] + dp[i], dp[i - 2] + dp[i]);
+    int len1 = s1.size();
+    int len2 = s2.size();
+    vector<string> res(len2 + 1, ""); //ÓÃÓÚdp¼ÇÂ¼×î³¤×ÓĞòÁĞ
+    for (int i = 1; i <= len1; i++) { //±éÀú×Ó´®1
+        string pre = "";
+        for (int j = 1; j <= len2; j++) { //±éÀú×Ó´®2
+            string temp = res[j];  //È¡µÃµ±Ç°dpÖĞ¼ÇÂ¼µÄµ±Ç°µãÎ»µÄ×î³¤×Ó´®
+            if (s1[i - 1] == s2[j - 1]) res[j] = pre + s1[i - 1]; //Èç¹ûµ±Ç°ÖµÏàµÈÔòµ±Ç°dpºóÃæÌí¼Ó¸ÃÖµ
+            else res[j] = (res[j].size() > res[j - 1].size() ? res[j] : res[j - 1]);
+            ////Èç¹û²»²»ÏàµÈ£¬Ôò±È½Ïµ±Ç°ÖµºÍÇ°Ò»¸öÖµÄÄ¸ö¸ü´ó£¬Èç¹ûÏàÍ¬´óĞ¡£¬ÔòÓÃÇ°ÃæµÄ¸²¸Ç¡£
+            //¸²¸ÇµÄÀíÓÉÊÇ£¬ÒòÎª´óĞ¡ÏàÍ¬µÄÇé¿ö£¬resÇ°ÃæµÄËµÃ÷ÏàÍ¬µÄµã±Èµ±Ç°µÄ³öÏÖµÄ¸üÔç£¬¿ÉÒÔĞÎ³É¸ü´ó³¤µÄ×ÓĞòÁĞ
+            pre = temp; //Íê±Ïºó¼ÇÂ¼Ô­±¾µÄres[j];
+        }
     }
-    return min(dp[size - 1], dp[size - 2]);
+    if (res[len2] == "") return res[len2] = "-1";
+    else return res[len2];
 }
