@@ -72,7 +72,7 @@ void mergeSort1(vector<char>& v, int begin, int end) {
 }
 
 int main() {
-    char c;
+   /* char c;
     vector<char> v;
     vector<char> res;
     int pos = 0;
@@ -87,6 +87,14 @@ int main() {
             j++;
         }
     }
-    for (auto i : res) cout << i;
+    for (auto i : res) cout << i;*/
+    int a = 12;
+    a *= a & a;
+    a -= a;
+    a += a;
+    int b = 12;
+    b += b -= b *= b & b;
+    int i = 1;
+    cout << a <<" " <<b<< endl;
     return 0;
 }
