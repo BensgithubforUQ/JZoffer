@@ -5,7 +5,7 @@ using namespace std;
 
 void reverse0X(string& str) {
     string temp;
-    for (auto& i : str) {
+    for (auto& i : str) { //这里原来有个坑啊，以前没发现，淦
         unsigned n, r = 0;
         if (i >= '0' && i <= '9')  n = i - '0';
         else if (i >= 'a' && i <= 'f') n = i - 'a' + 10;
