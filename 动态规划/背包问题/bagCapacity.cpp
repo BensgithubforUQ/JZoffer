@@ -86,10 +86,10 @@ private:
     int b;
     char e;
 };
-int main() {
-    //A a;
-    B b;
-    C c;
-    cout <<  " " << sizeof(b)<<" "<<sizeof(c);
-    return 0;
-}
+//int main() {
+//    //A a;
+//    B b;
+//    C c;
+//    cout <<  " " << sizeof(b)<<" "<<sizeof(c);
+//    return 0;
+//}
