@@ -1,3 +1,5 @@
-﻿  reverseString.cpp
-G:\learnNote_algorithm\动态规划\字符串的公共部分问题\reverseString.cpp(42,42): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+﻿  maxSubSequence.cpp
+G:\learnNote_algorithm\动态规划\字符串的公共部分问题\maxSubSequence.cpp(8,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+G:\learnNote_algorithm\动态规划\字符串的公共部分问题\maxSubSequence.cpp(9,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+G:\learnNote_algorithm\动态规划\字符串的公共部分问题\maxSubSequence.cpp(12,12): warning C4553: “==”: 未使用表达式结果；是否打算使用“=”?
   字符串的公共部分问题.vcxproj -> G:\learnNote_algorithm\动态规划\字符串的公共部分问题\x64\Debug\字符串的公共部分问题.exe
