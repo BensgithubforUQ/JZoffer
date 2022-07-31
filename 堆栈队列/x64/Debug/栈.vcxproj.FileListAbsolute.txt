@@ -1,1 +1,2 @@
 G:\learnNote_algorithm\栈\x64\Debug\堆栈队列.exe
+G:\learnNote_algorithm\堆栈队列\x64\Debug\堆栈队列.exe

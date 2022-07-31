@@ -26,6 +26,6 @@ vector<int> maxInWindows(const vector<int>& nums, int size) {
     return res;
 }
 
-int main() {
-    return 0;
-}
+//int main() {
+//    return 0;
+//}

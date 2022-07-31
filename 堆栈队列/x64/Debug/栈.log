@@ -1,3 +1,2 @@
-﻿  queue.cpp
-G:\learnNote_algorithm\栈\queue.cpp(14,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  栈.vcxproj -> G:\learnNote_algorithm\栈\x64\Debug\堆栈队列.exe
+﻿  stack.cpp
+  栈.vcxproj -> G:\learnNote_algorithm\堆栈队列\x64\Debug\堆栈队列.exe
