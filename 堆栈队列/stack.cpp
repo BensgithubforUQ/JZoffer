@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <unordered_map>
 using namespace std;
 
 //知道怎么叫崽种题吗，这就叫崽种题。
@@ -124,7 +125,7 @@ int main() {
             }
             op.pop();
         }
-        else if (c == '(' || c == '[' || c == '{') op.push('(');
+        else if (c == '(' || c == '[' || c == '{') op.push('('); //很重要，位置很重要，不然会搞错逻辑。
         else if (pr[c] > pr[op.top()]) op.push(c);
         else if (pr[c] <= pr[op.top()]) {
             while (pr[c] <= pr[op.top()]) {
