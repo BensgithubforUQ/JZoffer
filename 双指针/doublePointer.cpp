@@ -43,3 +43,46 @@ vector<vector<int> > threeSum(vector<int>& num) { //用哈希表比较烦，需要反复判断
     //for (auto i : noRepeat) res.push_back(i);
     return res;
 }
+
+char* f(int a) { return (char*)malloc(sizeof(char) * 8); }
+
+class base {
+public:
+    base(int x) :a(x) {}
+    virtual void print() {};
+private:
+    int a;
+};
+
+class base1 :public base{
+public:
+    base1(int x) :b(x),base(x-1) {};
+    virtual void print() {};
+private:
+    int b;
+};
+
+void main(void) {
+    //char* pstr;
+    //pstr = f(1);
+    //printf("%s", pstr);
+    ////strcpy(pstr, "123456789");
+    //printf("%s", pstr);
+ /*   char str[24];
+    char* p = str;
+    int n = 24;
+    void* q = malloc(24);
+    base1 x(1);
+    cout << sizeof(str) << " " << sizeof(p) << " " << sizeof(n) << " " <<sizeof(q) << " " <<sizeof(x) << endl;*/
+    /*char c = 1;
+    unsigned int a = 5;
+    int b = -7;
+    (a + b > 10) ? (c = 1) : (c = 2);
+    cout << a + b << endl;
+        printf("%d", c);*/
+
+    char a[] {'Z','Z','Z'};
+    char b[] = "zzz";
+
+    cout << sizeof(a) << " " << sizeof(b);
+}

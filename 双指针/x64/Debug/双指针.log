@@ -1,0 +1,4 @@
+﻿  doublePointer.cpp
+G:\learnNote_algorithm\双指针\doublePointer.cpp(17,35): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+G:\learnNote_algorithm\双指针\doublePointer.cpp(49,17): warning C4326: “main”的返回类型应为“int”而非“void”
+  双指针.vcxproj -> G:\learnNote_algorithm\双指针\x64\Debug\双指针.exe
