@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="head.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="stackAndDp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h" />
