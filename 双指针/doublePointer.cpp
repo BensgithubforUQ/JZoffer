@@ -62,6 +62,16 @@ private:
     int b;
 };
 
+int halfDivide(vector<int>& v,int i,int j) {
+    if (i == j) return i;
+    int mid = (i + j) / 2;
+    if (v[mid] > v[mid - 1] && v[mid] > v[mid + 1]) return mid;
+    else if (v[mid]<v[mid-1]) return halfDivide(v,i,mid-1);
+    return halfDivide(v, mid+1, j);
+}
+
+
+
 void main(void) {
     //char* pstr;
     //pstr = f(1);
@@ -81,8 +91,11 @@ void main(void) {
     cout << a + b << endl;
         printf("%d", c);*/
 
-    char a[] {'Z','Z','Z'};
+   /* char a[] {'Z','Z','Z'};
     char b[] = "zzz";
 
-    cout << sizeof(a) << " " << sizeof(b);
+    cout << sizeof(a) << " " << sizeof(b);*/
+
+    //mountainSort(v);
+    
 }
